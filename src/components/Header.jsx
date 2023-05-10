@@ -3,7 +3,7 @@ import logo from "../assets/logo.svg";
 import NavButton from "./button/NavButton";
 import LoginButton from "./button/LoginButton";
 
-const Header = () => {
+const Header = (props) => {
   return (
     <nav className="navbar navbar-expand-lg">
       <a className="navbar-brand" href="#">
