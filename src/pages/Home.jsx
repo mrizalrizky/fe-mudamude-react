@@ -2,6 +2,7 @@ import React from "react";
 import { Box, Button, Container, Typography } from "@mui/material";
 import { styled } from "@mui/system";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 import BenefitCard from "../components/card/BenefitCard";
 import heroBanner from "../assets/images/hero_banner.jpg";
 import infoEvent from "../assets/images/info_event.png";
@@ -117,6 +118,7 @@ const Home = () => {
           buttonText="Cari Teman"
         />
       </BenefitCardContainer>
+      <Footer />
     </>
   );
 };

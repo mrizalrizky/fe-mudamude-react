@@ -10,11 +10,13 @@ import infoEvent from "./assets/images/info_event.png";
 import promoteEvent from "./assets/images/promote_event.png";
 import belajarBareng from "./assets/images/belajar_bareng.png";
 import Home from "./pages/Home";
+import AppRouter from './router/index'
 
 function App() {
   return (
     <>
-      <Home />
+    <AppRouter/>
+      {/* <Home /> */}
       {/* <Header />
       <Hero /> */}
       {/* <EventCard

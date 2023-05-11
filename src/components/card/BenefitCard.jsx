@@ -8,6 +8,7 @@ import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import SubmitButton from "../button/SubmitButton";
+import { Box } from "@mui/material";
 
 export default function BenefitCard(props) {
   return (
@@ -15,7 +16,7 @@ export default function BenefitCard(props) {
       variant="none"
       sx={{
         width: 345,
-        height: 250,
+        height: 300,
         borderRadius: 5,
         backgroundColor: "#f4f4f4",
         marginLeft: "20px",
@@ -36,15 +37,18 @@ export default function BenefitCard(props) {
       <CardMedia
         component="img"
         image={props.image}
-        sx={{ width: "200px", margin: "0 auto", display: "block" }}
-      />
-      <CardContent
         sx={{
-          marginTop: "8px",
-          marginLeft: "10px",
-          justifyContent: "center",
+          width: "200px",
+          margin: "0 auto",
+          marginTop: "1em",
+          display: "block",
+        }}
+      />
+      <Box
+        sx={{
+          marginTop: "16px",
           display: "flex",
-          width: "100%",
+          justifyContent: "center",
           overflow: "hidden",
         }}
       >
@@ -53,7 +57,7 @@ export default function BenefitCard(props) {
           bgColor="#0e185f"
           height="45px"
         />
-      </CardContent>
+      </Box>
     </Card>
   );
 }
