@@ -17,9 +17,9 @@ const LoginButton = () => {
       <a href="/login" className={`btn mx-5 px-5 ${styles.btnLogin}`}>
         Login
       </a>
-      <a href="/profile" className={`btn mx-5 px-5 ${styles.btnLogin}`}>
+      {/* <a href="/profile" className={`btn mx-5 px-5 ${styles.btnLogin}`}>
         Profile
-      </a>
+      </a> */}
     </>
   );
 };

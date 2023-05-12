@@ -27,7 +27,7 @@ const useStyles = makeStyles({
     right: 16,
     backgroundColor: "#0e185f",
     color: "white",
-    padding: "2px 15px 2px 15px",
+    padding: "0.25em 15px", // top bottom - left right
     borderRadius: 20,
     display: "flex",
     justifyContent: "center",
@@ -38,14 +38,12 @@ const useStyles = makeStyles({
   imgContainer: {
     height: 200,
     overflow: "hidden",
-    // maxWidth: "100%",
   },
   img: {
     width: "100%",
     height: "100%",
     objectFit: "cover",
     borderRadius: 25,
-    // maxWidth: "100%",
   },
   link: {
     textDecoration: "none !important",
@@ -58,11 +56,11 @@ export default function EventCard({ event }) {
   return (
     <Card
       sx={{
-        // maxWidth: 325,
         width: 325,
         height: 325,
-        borderRadius: 5,
+        borderRadius: 6,
         backgroundColor: "#f4f4f4",
+        boxShadow: "none",
       }}
     >
       <Link href="http://google.com" className={styles.link}>
@@ -71,8 +69,6 @@ export default function EventCard({ event }) {
             <img
               className={styles.img}
               src="https://images.unsplash.com/photo-1470608756445-2c9906b0680f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8YmlnJTIwc2l6ZXxlbnwwfHwwfHw%3D&w=1000&q=80"
-              // src="https://png.pngtree.com/thumb_back/fh260/background/20200714/pngtree-modern-double-color-futuristic-neon-background-image_351866.jpg"
-              // src="https://images.pexels.com/photos/531880/pexels-photo-531880.jpeg?cs=srgb&dl=pexels-pixabay-531880.jpg&fm=jpg"
               alt="Event Banner"
             />
           </div>
@@ -104,12 +100,6 @@ export default function EventCard({ event }) {
             {moment(event.event_date).format("DD MMMM YYYY")}
           </Typography>
         </CardContent>
-        <CardActions disableSpacing>
-          <IconButton aria-label="add to favorites">
-            {/* <FavoriteIcon /> */}
-          </IconButton>
-          <IconButton aria-label="share">{/* <ShareIcon /> */}</IconButton>
-        </CardActions>
       </Link>
     </Card>
   );

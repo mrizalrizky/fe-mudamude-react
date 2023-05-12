@@ -9,16 +9,22 @@ import lockIcon from "../../assets/icons/ic_lock.svg";
 export default function DashboardCard(props) {
   return (
     <Box component="div" sx={{ display: "inline-block", marginLeft: "10em" }}>
-      <Typography variant="h4" color="#0e185f" fontWeight={700}>
+      <Typography
+        variant="h4"
+        color="#0e185f"
+        fontWeight={700}
+        sx={{ display: "flex", justifyContent: "center" }}
+      >
         Dashboard
       </Typography>
       <Box
         component="div"
         sx={{
           backgroundColor: "#f4f4f4",
-          width: "17.5em",
-          height: "35em",
-          marginTop: "5em",
+          width: "auto",
+          height: "auto",
+          marginTop: "3.5em",
+          paddingBottom: "2em",
           borderRadius: 5,
           display: "flex",
           flexDirection: "column",

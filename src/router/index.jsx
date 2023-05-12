@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "../pages/Home";
 import LoginPage from "../pages/LoginPage";
-import ProfilePage from "../pages/ProfilePage";
+import UserEventPage from "../pages/UserEventPage";
 import EventPage from "../pages/EventPage";
 import CommunityPage from "../pages/CommunityPage";
 import PartnershipPage from "../pages/PartnershipPage";
@@ -14,7 +14,7 @@ export default function AppRouter() {
     <BrowserRouter>
       <Routes>
         <Route exact path="/" element={<Home />} />
-        <Route exact path="/profile" element={<ProfilePage />} />
+        <Route exact path="/profile" element={<UserEventPage />} />
         <Route exact path="/login" element={<LoginPage />} />
         <Route exact path="/event" element={<EventPage />} />
         <Route exact path="/community" element={<CommunityPage />} />
