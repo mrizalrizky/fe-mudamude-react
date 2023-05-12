@@ -49,7 +49,7 @@ const BenefitSection = styled(Typography)({
 const Home = () => {
   return (
     <>
-      <Header />
+      <Header href="/" />
       <StyledContainer fixed>
         <Box component="div">
           <HeroText variant="h1" color="#0e185f">

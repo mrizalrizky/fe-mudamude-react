@@ -10,11 +10,11 @@ const Header = (props) => {
         <img width={125} height={128} src={logo} alt="MudaMude" />
       </a>
       <ul className="navbar-nav d-flex justify-content-center flex-grow-1">
-        <NavButton name="Home" href="#" />
-        <NavButton name="Event" href="#" />
-        <NavButton name="Community" href="#" />
-        <NavButton name="Partnership" href="#" />
-        <NavButton name="About" href="#" />
+        <NavButton name="Home" href="/" />
+        <NavButton name="Event" href="/event" />
+        <NavButton name="Community" href="/community" />
+        <NavButton name="Partnership" href="/partnership" />
+        <NavButton name="About" href="/about" />
       </ul>
       <LoginButton />
     </nav>

@@ -13,9 +13,14 @@ const LoginButton = () => {
   const styles = useStyles();
 
   return (
-    <button className={`btn mx-5 px-5 ${styles.btnLogin}`} type="submit">
-      Login
-    </button>
+    <>
+      <a href="/login" className={`btn mx-5 px-5 ${styles.btnLogin}`}>
+        Login
+      </a>
+      <a href="/profile" className={`btn mx-5 px-5 ${styles.btnLogin}`}>
+        Profile
+      </a>
+    </>
   );
 };
 

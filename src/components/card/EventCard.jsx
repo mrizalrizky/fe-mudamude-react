@@ -11,6 +11,7 @@ import banner from "../../assets/images/banner.png";
 import { Box } from "@mui/system";
 import { makeStyles } from "@mui/styles";
 import { Link } from "@mui/material";
+import moment from "moment";
 
 const useStyles = makeStyles({
   box: {
@@ -20,12 +21,13 @@ const useStyles = makeStyles({
   },
   categoryBox: {
     position: "absolute",
-    width: "85px",
+    width: "auto",
+    height: "auto",
     top: 15,
     right: 16,
     backgroundColor: "#0e185f",
     color: "white",
-    padding: "5px",
+    padding: "2px 15px 2px 15px",
     borderRadius: 20,
     display: "flex",
     justifyContent: "center",
@@ -42,19 +44,22 @@ const useStyles = makeStyles({
     width: "100%",
     height: "100%",
     objectFit: "cover",
+    borderRadius: 25,
+    // maxWidth: "100%",
   },
   link: {
     textDecoration: "none !important",
   },
 });
 
-export default function EventCard(props) {
+export default function EventCard({ event }) {
   const styles = useStyles();
 
   return (
     <Card
       sx={{
-        maxWidth: 345,
+        // maxWidth: 325,
+        width: 325,
         height: 325,
         borderRadius: 5,
         backgroundColor: "#f4f4f4",
@@ -66,12 +71,12 @@ export default function EventCard(props) {
             <img
               className={styles.img}
               src="https://images.unsplash.com/photo-1470608756445-2c9906b0680f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8YmlnJTIwc2l6ZXxlbnwwfHwwfHw%3D&w=1000&q=80"
-              //   src="https://png.pngtree.com/thumb_back/fh260/background/20200714/pngtree-modern-double-color-futuristic-neon-background-image_351866.jpg"
-              //   src="https://images.pexels.com/photos/531880/pexels-photo-531880.jpeg?cs=srgb&dl=pexels-pixabay-531880.jpg&fm=jpg"
+              // src="https://png.pngtree.com/thumb_back/fh260/background/20200714/pngtree-modern-double-color-futuristic-neon-background-image_351866.jpg"
+              // src="https://images.pexels.com/photos/531880/pexels-photo-531880.jpeg?cs=srgb&dl=pexels-pixabay-531880.jpg&fm=jpg"
               alt="Event Banner"
             />
           </div>
-          <Box className={styles.categoryBox}>{props.category}</Box>
+          <Box className={styles.categoryBox}>{event.name}</Box>
         </div>
         <CardContent sx={{ marginTop: "8px", marginLeft: "10px" }}>
           <Typography
@@ -80,7 +85,7 @@ export default function EventCard(props) {
             fontSize={20}
             fontWeight={600}
           >
-            {props.title}
+            {event.title}
           </Typography>
           <Typography
             variant="body2"
@@ -88,7 +93,7 @@ export default function EventCard(props) {
             fontSize={16}
             fontWeight={500}
           >
-            {props.organizer}
+            {event.organizer_name}
           </Typography>
           <Typography
             variant="caption"
@@ -96,7 +101,7 @@ export default function EventCard(props) {
             fontSize={12}
             fontWeight={400}
           >
-            {props.date}
+            {moment(event.event_date).format("DD MMMM YYYY")}
           </Typography>
         </CardContent>
         <CardActions disableSpacing>

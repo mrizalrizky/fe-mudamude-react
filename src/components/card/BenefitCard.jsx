@@ -38,7 +38,9 @@ export default function BenefitCard(props) {
         component="img"
         image={props.image}
         sx={{
-          width: "200px",
+          maxWidth: "180px",
+          // width: "1px",
+          maxHeight: "120px",
           margin: "0 auto",
           marginTop: "1em",
           display: "block",

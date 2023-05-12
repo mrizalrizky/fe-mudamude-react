@@ -1,50 +1,57 @@
-import React from "react";
-import { Avatar, Grid, Typography } from "@mui/material";
-import { Box, styled } from "@mui/system";
+import React, { useEffect, useState } from "react";
+import { Typography } from "@mui/material";
+import { Box } from "@mui/system";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
-import DashboardItem from "../components/DashboardItem";
-import personIcon from "../assets/icons/ic_profile.svg";
-import noteIcon from "../assets/icons/ic_events.svg";
-import cardIcon from "../assets/icons/ic_card.svg";
-import lockIcon from "../assets/icons/ic_lock.svg";
+import DashboardCard from "../components/card/DashboardCard";
+import EventCard from "../components/card/EventCard";
+import axios from "axios";
 
 const ProfilePage = () => {
+  const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+    const getEventData = async () => {
+      try {
+        const res = await axios.get("http://localhost:3344/api/event/all");
+        setEvents(res.data.data);
+      } catch (error) {
+        console.log("error:> ", error);
+      }
+    };
+    getEventData();
+  }, []);
+
   return (
     <>
       <Header />
-      <Box component="div" sx={{ display: "inline-block", marginLeft: "90px" }}>
-        <Typography variant="h4" color="#0e185f" fontWeight={700}>
-          Dashboard
-        </Typography>
-        <Box
-          component="div"
-          sx={{ backgroundColor: "#f4f4f4", height: "20em" }}
-        >
-          <Grid container xs={12}>
-            <Grid item xs={8}>
-              <Avatar
-                sx={{
-                  justifyContent: "center",
-                  alignItems: "center",
-                  display: "flex",
-                }}
-              ></Avatar>
-              <DashboardItem title="Profile" image={personIcon} />
-              <DashboardItem title="Events" image={noteIcon} />
-              <DashboardItem title="Membership" image={cardIcon} />
-              <DashboardItem title="Security" image={lockIcon} />
-            </Grid>
-          </Grid>
-        </Box>
+      <Box component="div" sx={{ display: "flex" }}>
+        <DashboardCard />
 
-        <Box component="div">
+        <Box component="div" sx={{ marginLeft: "10em" }}>
           <Typography variant="h5" color="#0e185f" fontWeight={700}>
             Event
           </Typography>
-          <Typography variant="subtitle1" color="0e185f" fontSize="18px">
+          <Typography variant="subtitle1" color="#0e185f" fontSize="18px">
             Kelola event yang sudah kamu upload dan ikuti
           </Typography>
+
+          <Box component="div"></Box>
+
+          {events.length > 0 ? (
+            events.map((data) => {
+              return (
+                <Box
+                  sx={{ display: "inline-block", margin: "3em 5em 1em 0" }}
+                  key={data.id_event}
+                >
+                  <EventCard event={data} />
+                </Box>
+              );
+            })
+          ) : (
+            <p>No events</p>
+          )}
         </Box>
       </Box>
       <Footer />

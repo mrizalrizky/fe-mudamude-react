@@ -1,8 +1,6 @@
 import React from "react";
-import { Box, styled } from "@mui/system";
+import { styled } from "@mui/system";
 import { Paper, ThemeProvider, createTheme, Typography } from "@mui/material";
-
-import clockIcon from "../assets/icons/ic_clock.svg";
 
 const theme = createTheme({
   pallete: {
@@ -13,15 +11,14 @@ const theme = createTheme({
 });
 
 const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "white",
-  //   ...theme.typography.body2,
-  // padding: theme.spacing(1),
+  // backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "f4f4f4",
+  backgroundColor: "#f4f4f4",
+  color: theme.pallete.primary.main,
+  padding: theme.spacing(1),
   textAlign: "center",
-  color: theme.palette.text.secondary,
-  width: "12em",
+  width: "13.5em",
   marginLeft: "20px",
   marginRight: "20px",
-  marginBottom: "0.5em",
   height: "3.5em",
   display: "flex",
   alignItems: "center",
@@ -35,12 +32,12 @@ export default function DashboardItem(props) {
       <Item>
         <img
           src={props.image}
-          width={45}
+          width={30}
           height={45}
-          className="mx-1"
+          className="mx-2 me-3"
           alt="Icon"
         />
-        <Typography variant="h6" color={"#0e185f"} fontWeight={600}>
+        <Typography variant="h6" fontWeight={600}>
           {props.title}
         </Typography>
       </Item>
