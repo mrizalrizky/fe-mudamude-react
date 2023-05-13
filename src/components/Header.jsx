@@ -6,7 +6,7 @@ import LoginButton from "./button/LoginButton";
 const Header = (props) => {
   return (
     <nav className="navbar navbar-expand-lg">
-      <a className="navbar-brand" href="#">
+      <a className="navbar-brand" href="/">
         <img width={125} height={128} src={logo} alt="MudaMude" />
       </a>
       <ul className="navbar-nav d-flex justify-content-center flex-grow-1">

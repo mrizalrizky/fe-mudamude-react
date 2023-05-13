@@ -2,25 +2,39 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { Avatar, Box, Container, Typography, Input } from "@mui/material";
+import { Box, Container, Typography, Input, Button } from "@mui/material";
+import UserAvatar from "../components/UserAvatar";
 import moreIcon from "../assets/icons/ic_dot_three_vertical.svg";
 import ThumbUpIcon from "../assets/icons/ic_thumb_up.svg";
 import ThumbDownIcon from "../assets/icons/ic_thumb_down.svg";
 import CommentIcon from "../assets/icons/ic_comments.svg";
 import SendIcon from "../assets/icons/ic_send.svg";
 import CommentBox from "../components/CommentBox";
+import { useParams } from "react-router";
 
-const PostDetailPage = () => {
+const PostDetailPage = ({ data }) => {
+  const { slug } = useParams();
+  const [postDetail, setPostDetail] = useState({});
   const [comments, setComments] = useState([]);
 
+  const getPostDetails = async () => {
+    const response = await axios.get(
+      `http://localhost:3344/api/posts/${slug}/detail`
+    );
+    console.log(response.data);
+    console.log(response.data.data);
+    setPostDetail(response.data.data);
+  };
+
+  const getUserComments = async () => {
+    const response = await axios.get(
+      "http://localhost:3344/api/posts/comments?id_post=1"
+    );
+    setComments(response.data.data);
+  };
+
   useEffect(() => {
-    const getUserComments = async () => {
-      const response = await axios.get(
-        "http://localhost:3344/api/posts/comments?id_post=1"
-      );
-      console.log(response.data.data);
-      setComments(response.data.data);
-    };
+    getPostDetails();
     getUserComments();
   }, []);
 
@@ -34,7 +48,7 @@ const PostDetailPage = () => {
           height: "auto",
           width: "40em",
           marginBottom: "2em",
-          paddingBottom: "2em",
+          paddingBottom: "0.5em",
           display: "flex",
           flexDirection: "column",
         }}
@@ -48,31 +62,17 @@ const PostDetailPage = () => {
             justifyContent: "space-between",
           }}
         >
-          <Box
-            component="div"
-            sx={{
-              display: "flex",
-              flexDirection: "row",
-              marginTop: "2em",
-            }}
-          >
-            <Avatar sx={{ width: 60, height: 60 }} />
-            <Box component="div" sx={{ marginLeft: "1em " }}>
-              <Typography variant="h6" fontWeight={600} color={"#0e185f"}>
-                Susi
-              </Typography>
-              <Typography variant="subtitle1" color={"#0e185f"}>
-                Universitas Bina Nusantara
-              </Typography>
-            </Box>
-          </Box>
+          <UserAvatar
+            fullName={postDetail.fullName}
+            institution={postDetail.institution}
+          />
           <div>
             <img src={moreIcon} alt="" width={20} />
           </div>
         </Box>
         <Box component="div" sx={{ paddingLeft: "4.7em" }}>
           <Typography variant="body1" color={"#0e185f"}>
-            Belajar IPA bareng yuk! Ini linknya
+            {postDetail.content}
           </Typography>
           <Box
             component="div"
@@ -97,10 +97,10 @@ const PostDetailPage = () => {
                 flex: 1,
               }}
             >
-              meet.google.com
+              {postDetail.url}
             </Typography>
-            <Box
-              component="div"
+            <Button
+              href={`http://${postDetail.url}`}
               sx={{
                 width: "auto",
                 borderRadius: 3,
@@ -115,7 +115,26 @@ const PostDetailPage = () => {
               <Typography variant="body1" fontWeight={600} color="white">
                 Join
               </Typography>
-            </Box>
+            </Button>
+            {/* <a href={`http://${postDetail.url}`}>
+              <Box
+                component="div"
+                sx={{
+                  width: "auto",
+                  borderRadius: 3,
+                  backgroundColor: "#0e185f",
+                  display: "flex",
+                  alignItems: "center",
+                  padding: "0.25em 1.75em",
+                  marginTop: "0.1em",
+                  justifyContent: "flex-end",
+                }}
+              >
+                <Typography variant="body1" fontWeight={600} color="white">
+                  Join
+                </Typography>
+              </Box>
+            </a> */}
           </Box>
         </Box>
         <Box component="div" sx={{ display: "flex", gap: "1em" }}>
@@ -129,7 +148,7 @@ const PostDetailPage = () => {
           sx={{
             backgroundColor: "white",
             borderRadius: 5,
-            height: "2.5em",
+            height: "auto",
             display: "flex",
             justifyContent: "flex-end",
             alignItems: "center",
@@ -141,34 +160,39 @@ const PostDetailPage = () => {
           <Input
             disableUnderline
             fullWidth
+            multiline
             placeholder="Tulis komentar..."
             sx={{ paddingRight: "0.5em" }}
           />
           <img src={SendIcon} width={25} height={25} alt="Send Comment" />
         </Box>
-        <Box
-          component="div"
-          sx={{
-            height: "3em",
-            paddingLeft: "1em",
-            borderRadius: 3,
-            display: "flex",
-            alignItems: "center",
-            backgroundColor: "white",
-            gap: "1em",
-          }}
-        >
-          <img src={CommentIcon} width={30} height={30} alt="Comment" />
-          {comments.length > 0 ? (
-            comments.map((comment) => {
-              return <CommentBox data={comment} />;
-            })
-          ) : (
+        {comments.length > 0 ? (
+          comments.map((comment) => {
+            return (
+              <Box key={comment.id_post_comment} component="div">
+                <CommentBox data={comment} />;
+              </Box>
+            );
+          })
+        ) : (
+          <Box
+            component="div"
+            sx={{
+              height: "3em",
+              paddingLeft: "1em",
+              borderRadius: 3,
+              display: "flex",
+              alignItems: "center",
+              backgroundColor: "white",
+              gap: "1em",
+            }}
+          >
+            <img src={CommentIcon} width={30} height={30} alt="Comment" />
             <Typography variant="body1" color="#0e185f">
               Belum ada komentar
             </Typography>
-          )}
-        </Box>
+          </Box>
+        )}
       </Container>
       <Footer />
     </>

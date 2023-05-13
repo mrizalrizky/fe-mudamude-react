@@ -18,9 +18,9 @@ export default function AppRouter() {
         <Route exact path="/login" element={<LoginPage />} />
         <Route exact path="/event" element={<EventPage />} />
         <Route exact path="/community" element={<CommunityPage />} />
+        <Route path="/posts/:slug/detail" element={<PostDetailPage />} />
         <Route exact path="/partnership" element={<PartnershipPage />} />
         <Route exact path="/about" element={<AboutPage />} />
-        <Route exact path="/postdetail" element={<PostDetailPage />} />
       </Routes>
     </BrowserRouter>
   );

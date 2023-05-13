@@ -66,6 +66,7 @@ const Home = () => {
           />
         </Box>
         <Button
+          href="/register"
           variant="contained"
           sx={{
             width: "200px",
