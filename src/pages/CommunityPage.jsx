@@ -23,7 +23,8 @@ const CommunityPage = () => {
 
   useEffect(() => {
     const getPostList = async () => {
-      const res = await axios.get("http://localhost:3344/api/posts/all");
+      console.log(process.env.API_URL);
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/posts/all`);
       setPosts(res.data.data);
     };
     getPostList();
