@@ -12,14 +12,16 @@ const RegisterPage = () => {
         <Box component="div" sx={{ width: 375, marginRight: "2em" }}>
           <Box component="div" sx={{ marginBottom: "3em" }}>
             <Typography
-              variant="h4"
+              variant="h5"
               sx={{ display: "inline" }}
               fontWeight={600}
               color="#0e185f"
             >
               Buat akun baru
             </Typography>
-            <Typography variant="h6">Daftarkan akunmu di sini!</Typography>
+            <Typography variant="body1" color="#0e185f">
+              Daftarkan akunmu di sini!
+            </Typography>
           </Box>
           <Box
             component="div"

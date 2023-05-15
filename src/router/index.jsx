@@ -12,6 +12,8 @@ import PostDetailPage from "../pages/PostDetailPage";
 import ForgotPasswordPage from "../pages/ForgotPasswordPage";
 import EventDetailPage from "../pages/EventDetailPage";
 import UserProfilePage from "../pages/UserProfilePage";
+import ArticleDetail from "../pages/ArticleDetail";
+import ArticlePage from "../pages/ArticlePage";
 
 export default function AppRouter() {
   return (
@@ -26,6 +28,8 @@ export default function AppRouter() {
         <Route exact path="/event" element={<EventPage />} />
         <Route exact path="/event/:slug/detail" element={<EventDetailPage />} />
         <Route exact path="/community" element={<CommunityPage />} />
+        <Route exact path="/articles" element={<ArticlePage />} />
+        <Route exact path="/article/:slug/detail" element={<ArticleDetail />} />
         <Route path="/posts/:slug/detail" element={<PostDetailPage />} />
         <Route exact path="/partnership" element={<PartnershipPage />} />
         <Route exact path="/about" element={<AboutPage />} />

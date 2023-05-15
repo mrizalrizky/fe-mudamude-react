@@ -12,14 +12,16 @@ const LoginPage = () => {
         <Box component="div" sx={{ width: 375, marginRight: "2em" }}>
           <Box component="div" sx={{ marginBottom: "3em" }}>
             <Typography
-              variant="h4"
+              variant="h5"
               sx={{ display: "inline" }}
               fontWeight={600}
               color="#0e185f"
             >
               Masuk ke akun kamu
             </Typography>
-            <Typography variant="h6">Login menggunakan akunmu!</Typography>
+            <Typography variant="body1" color="#0e185f">
+              Login menggunakan akunmu!
+            </Typography>
           </Box>
           <Box
             component="div"
