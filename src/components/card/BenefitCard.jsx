@@ -28,7 +28,7 @@ export default function BenefitCard(props) {
         fontSize="18px"
         display="flex"
         justifyContent="center"
-        fontWeight={700}
+        fontWeight={600}
         color="#0e185f"
         marginTop="22px"
       >
@@ -38,9 +38,8 @@ export default function BenefitCard(props) {
         component="img"
         image={props.image}
         sx={{
-          maxWidth: "180px",
-          // width: "1px",
-          maxHeight: "120px",
+          width: "auto",
+          height: 150,
           margin: "0 auto",
           marginTop: "1em",
           display: "block",
@@ -48,7 +47,7 @@ export default function BenefitCard(props) {
       />
       <Box
         sx={{
-          marginTop: "16px",
+          marginTop: "1.25em",
           display: "flex",
           justifyContent: "center",
           overflow: "hidden",

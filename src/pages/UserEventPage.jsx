@@ -14,6 +14,9 @@ const UserEventPage = () => {
     const getEventData = async () => {
       try {
         const res = await axios.get("http://localhost:3344/api/event/all");
+        // const res = await axios.get(
+        //   "http://localhost:3344/api/profile/uploaded-events?username=putriaap"
+        // );
         setEvents(res.data.data);
       } catch (error) {
         console.log("error:> ", error);
@@ -31,21 +34,24 @@ const UserEventPage = () => {
         <Box
           component="div"
           sx={{
-            padding: "0 2em 0 10em",
+            width: "100%",
+            padding: "0 0 0 10em",
           }}
         >
-          <Typography variant="h5" color="#0e185f" fontWeight={700}>
-            Event
-          </Typography>
-          <Typography variant="caption" color="#0e185f" fontSize="18px">
-            Kelola event yang sudah kamu upload dan ikuti
-          </Typography>
+          <Box component="div">
+            <Typography variant="h5" color="#0e185f" fontWeight={700}>
+              Event
+            </Typography>
+            <Typography variant="caption" color="#0e185f" fontSize="18px">
+              Kelola event yang sudah kamu upload dan ikuti
+            </Typography>
+          </Box>
 
           <Box
             component="div"
             sx={{
               marginTop: "2.5em",
-              width: "85%",
+              width: "100%",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -94,20 +100,26 @@ const UserEventPage = () => {
             </Box>
           </Box>
 
-          {events.length > 0 ? (
-            events.map((data) => {
-              return (
-                <Box
-                  sx={{ display: "inline-block", margin: "3em 5em 1em 0" }}
-                  key={data.id_event}
-                >
-                  <EventCard event={data} />
-                </Box>
-              );
-            })
-          ) : (
-            <p>No events</p>
-          )}
+          <Box
+            component="div"
+            sx={{
+              display: "flex",
+              gap: "5em",
+              paddingTop: "3em",
+              paddingX: "5em",
+              marginBottom: "2em",
+
+              flexWrap: "wrap",
+            }}
+          >
+            {events.length > 0 ? (
+              events.map((data) => {
+                return <EventCard key={data.id_event} event={data} />;
+              })
+            ) : (
+              <p>No events</p>
+            )}
+          </Box>
         </Box>
       </Box>
       <Footer />

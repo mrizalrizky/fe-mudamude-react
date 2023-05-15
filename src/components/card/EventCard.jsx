@@ -57,7 +57,7 @@ export default function EventCard({ event }) {
     <Card
       sx={{
         width: 325,
-        height: 325,
+        height: 345,
         borderRadius: 6,
         backgroundColor: "#f4f4f4",
         boxShadow: "none",
@@ -75,12 +75,7 @@ export default function EventCard({ event }) {
           <Box className={styles.categoryBox}>{event.name}</Box>
         </div>
         <CardContent sx={{ marginTop: "8px", marginLeft: "10px" }}>
-          <Typography
-            variant="h5"
-            color="#0e185f"
-            fontSize={20}
-            fontWeight={600}
-          >
+          <Typography variant="h6" color="#0e185f" fontWeight={600}>
             {event.title}
           </Typography>
           <Typography

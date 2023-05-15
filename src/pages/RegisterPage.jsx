@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 import AuthBanner from "../assets/images/auth_banner.jpg";
 import { Box, Button, Container, Input, Link, Typography } from "@mui/material";
 
-const LoginPage = () => {
+const RegisterPage = () => {
   return (
     <>
       <Header />
@@ -17,9 +17,9 @@ const LoginPage = () => {
               fontWeight={600}
               color="#0e185f"
             >
-              Masuk ke akun kamu
+              Buat akun baru
             </Typography>
-            <Typography variant="h6">Login menggunakan akunmu!</Typography>
+            <Typography variant="h6">Daftarkan akunmu di sini!</Typography>
           </Box>
           <Box
             component="div"
@@ -33,7 +33,37 @@ const LoginPage = () => {
           >
             <Box component="div" sx={{ marginBottom: "1.5em" }}>
               <Typography variant="body1" color="#0e185f" fontWeight={500}>
-                Email address
+                Full Name
+              </Typography>
+              <Input
+                disableUnderline
+                fullWidth
+                sx={{
+                  backgroundColor: "white",
+                  padding: "0.5em",
+                  alignItems: "center",
+                  borderRadius: 2,
+                }}
+              ></Input>
+            </Box>
+            <Box component="div" sx={{ marginBottom: "0.5em" }}>
+              <Typography variant="body1" color="#0e185f" fontWeight={500}>
+                Username
+              </Typography>
+              <Input
+                disableUnderline
+                fullWidth
+                sx={{
+                  backgroundColor: "white",
+                  padding: "0.5em",
+                  alignItems: "center",
+                  borderRadius: 2,
+                }}
+              ></Input>
+            </Box>
+            <Box component="div" sx={{ marginBottom: "0.5em" }}>
+              <Typography variant="body1" color="#0e185f" fontWeight={500}>
+                Email Address
               </Typography>
               <Input
                 disableUnderline
@@ -61,17 +91,32 @@ const LoginPage = () => {
                 }}
               ></Input>
             </Box>
+            <Box component="div" sx={{ marginBottom: "0.5em" }}>
+              <Typography variant="body1" color="#0e185f" fontWeight={500}>
+                Confirm Password
+              </Typography>
+              <Input
+                disableUnderline
+                fullWidth
+                sx={{
+                  backgroundColor: "white",
+                  padding: "0.5em",
+                  alignItems: "center",
+                  borderRadius: 2,
+                }}
+              ></Input>
+            </Box>
             <Box
               component="div"
               sx={{
                 display: "flex",
-                justifyContent: "flex-end",
+                justifyContent: "flex-start",
                 marginBottom: "1.5em",
               }}
             >
-              <Link underline="none" href="/forgot">
+              <Link underline="none" href="/login">
                 <Typography variant="caption" color="#0e185f">
-                  Lupa password?
+                  Terms & Conditions
                 </Typography>
               </Link>
             </Box>
@@ -96,53 +141,17 @@ const LoginPage = () => {
                     borderRadius: 20,
                     backgroundColor: "#0e185f",
                     color: "white",
-                    marginBottom: "1em",
                   }}
                 >
-                  Login
+                  Register
                 </Button>
-                <Box
-                  component="div"
-                  sx={{
-                    width: "auto",
-                    height: "auto",
-                  }}
-                >
-                  <Button
-                    sx={{
-                      width: 250,
-                      height: 45,
-                      borderRadius: 20,
-                      backgroundColor: "white",
-                      color: "#0e185f",
-                    }}
-                  >
-                    Login with Google
-                  </Button>
-                </Box>
               </Box>
-            </Box>
-            <Box
-              component="div"
-              sx={{
-                marginTop: "1em",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <Link underline="none" href="/register">
-                <Typography variant="caption" color="#0e185f">
-                  Belum punya akun? Yuk daftar dulu!
-                </Typography>
-              </Link>
             </Box>
           </Box>
         </Box>
         <Box
           component="div"
           sx={{
-            // backgroundColor: "magenta",
             marginTop: "5em",
             width: "100%",
             display: "flex",
@@ -158,4 +167,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default RegisterPage;

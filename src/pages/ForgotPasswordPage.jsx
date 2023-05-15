@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 import AuthBanner from "../assets/images/auth_banner.jpg";
 import { Box, Button, Container, Input, Link, Typography } from "@mui/material";
 
-const LoginPage = () => {
+const ForgotPasswordPage = () => {
   return (
     <>
       <Header />
@@ -17,9 +17,11 @@ const LoginPage = () => {
               fontWeight={600}
               color="#0e185f"
             >
-              Masuk ke akun kamu
+              Lupa Password
             </Typography>
-            <Typography variant="h6">Login menggunakan akunmu!</Typography>
+            <Typography variant="h6">
+              Masukan emailmu untuk reset password
+            </Typography>
           </Box>
           <Box
             component="div"
@@ -46,35 +48,14 @@ const LoginPage = () => {
                 }}
               ></Input>
             </Box>
-            <Box component="div" sx={{ marginBottom: "0.5em" }}>
-              <Typography variant="body1" color="#0e185f" fontWeight={500}>
-                Password
-              </Typography>
-              <Input
-                disableUnderline
-                fullWidth
-                sx={{
-                  backgroundColor: "white",
-                  padding: "0.5em",
-                  alignItems: "center",
-                  borderRadius: 2,
-                }}
-              ></Input>
-            </Box>
             <Box
               component="div"
               sx={{
                 display: "flex",
                 justifyContent: "flex-end",
-                marginBottom: "1.5em",
+                // marginBottom: "1.5em",
               }}
-            >
-              <Link underline="none" href="/forgot">
-                <Typography variant="caption" color="#0e185f">
-                  Lupa password?
-                </Typography>
-              </Link>
-            </Box>
+            ></Box>
             <Box
               component="div"
               sx={{
@@ -96,46 +77,15 @@ const LoginPage = () => {
                     borderRadius: 20,
                     backgroundColor: "#0e185f",
                     color: "white",
-                    marginBottom: "1em",
+                    "&:hover": {
+                      backgroundColor: "#0e185f",
+                      color: "white",
+                    },
                   }}
                 >
-                  Login
+                  Send
                 </Button>
-                <Box
-                  component="div"
-                  sx={{
-                    width: "auto",
-                    height: "auto",
-                  }}
-                >
-                  <Button
-                    sx={{
-                      width: 250,
-                      height: 45,
-                      borderRadius: 20,
-                      backgroundColor: "white",
-                      color: "#0e185f",
-                    }}
-                  >
-                    Login with Google
-                  </Button>
-                </Box>
               </Box>
-            </Box>
-            <Box
-              component="div"
-              sx={{
-                marginTop: "1em",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <Link underline="none" href="/register">
-                <Typography variant="caption" color="#0e185f">
-                  Belum punya akun? Yuk daftar dulu!
-                </Typography>
-              </Link>
             </Box>
           </Box>
         </Box>
@@ -158,4 +108,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default ForgotPasswordPage;

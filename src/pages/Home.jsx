@@ -31,12 +31,6 @@ const CTAText = styled(Typography)({
   color: "#0e185f",
 });
 
-const BenefitCardContainer = styled(Container)({
-  display: "flex",
-  justifyContent: "center",
-  marginBottom: "25px",
-});
-
 const BenefitSection = styled(Typography)({
   fontSize: "30px",
   display: "flex",
@@ -44,6 +38,13 @@ const BenefitSection = styled(Typography)({
   marginBottom: "50px",
   color: "#0e185f",
   fontWeight: "600",
+});
+
+const BenefitCardContainer = styled(Container)({
+  display: "flex",
+  justifyContent: "center",
+  gap: "1.5em",
+  marginBottom: "25px",
 });
 
 const Home = () => {
@@ -55,15 +56,17 @@ const Home = () => {
           <HeroText variant="h1" color="#0e185f">
             Platform Kolaborasi Anak Muda Indonesia
           </HeroText>
-          <img
-            src={heroBanner}
-            alt="Hero Banner"
-            style={{
-              width: "100%",
-              height: "auto",
-              objectFit: "cover",
-            }}
-          />
+          <Box component="div">
+            <img
+              src={heroBanner}
+              alt="Hero Banner"
+              style={{
+                width: "100%",
+                height: "auto",
+                objectFit: "cover",
+              }}
+            />
+          </Box>
         </Box>
         <Button
           href="/register"
@@ -98,10 +101,10 @@ const Home = () => {
           nobis excepturi atque minima, exercitationem aut reprehenderit vitae
           neque error quod quos nihil dolore. Voluptatum, amet aut!
         </Typography>
-        <BenefitSection>
-          Benefit yang kamu dapetin kalau ikut gabung!
-        </BenefitSection>
       </Container>
+      <BenefitSection>
+        Benefit yang kamu dapetin kalau ikut gabung!
+      </BenefitSection>
       <BenefitCardContainer>
         <BenefitCard
           title="Info Event dan Webinar"

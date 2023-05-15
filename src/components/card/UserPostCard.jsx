@@ -11,61 +11,56 @@ export default function UserPostCard({ data }) {
         height: "auto",
         borderRadius: 6,
         backgroundColor: "#f4f4f4",
+        padding: "0.25em 2em 1.5em 2em",
       }}
     >
       <Box component="div">
+        <UserAvatar fullName={data.fullName} institution={data.institution} />
         <Box
           component="div"
           sx={{
-            width: "245",
-            height: "auto",
-            padding: "0.25em 2em 1.5em 2em",
-            bakgroundColor: "red",
+            width: "100%",
+            height: 100,
+            padding: "1em 1em",
+            overflow: "hidden",
+            wordWrap: "break-word",
+            textJustify: "auto",
           }}
         >
-          <UserAvatar fullName={data.fullName} institution={data.institution} />
-          <Box
-            component="div"
+          <Typography variant="body1" color="#0e185f">
+            {data.content.length < 80
+              ? data.content
+              : data.content
+                  .substring(0, data.content.length - 20)
+                  .concat("...")}
+          </Typography>
+        </Box>
+        <Box
+          component="div"
+          sx={{
+            display: "flex",
+            justifyContent: "flex-end",
+          }}
+        >
+          <Button
+            href={`posts/${data.slug}/detail`}
             sx={{
-              width: "100%",
-              height: 100,
-              padding: "1em 1em",
-              overflow: "hidden",
-              wordWrap: "break-word",
-              textJustify: "auto",
-            }}
-          >
-            <Typography variant="body1" color="#0e185f">
-              {data.content.length < 80
-                ? data.content
-                : data.content
-                    .substring(0, data.content.length - 20)
-                    .concat("...")}
-            </Typography>
-          </Box>
-          <Box
-            component="div"
-            sx={{
-              display: "flex",
-              justifyContent: "flex-end",
-            }}
-          >
-            <Button
-              href={`posts/${data.slug}/detail`}
-              sx={{
-                width: "auto",
-                borderRadius: 5,
-                padding: "0.25em 0.75em",
-                display: "inline-flex",
+              width: "auto",
+              borderRadius: 5,
+              padding: "0.25em 0.75em",
+              display: "inline-flex",
+              backgroundColor: "#0e185f",
+              "&:hover": {
                 backgroundColor: "#0e185f",
-              }}
-            >
-              <Typography variant="caption" color="white">
-                Read More
-              </Typography>
-            </Button>
-          </Box>
-          {/* <a href={`posts/${data.slug}/detail`}>
+              },
+            }}
+          >
+            <Typography variant="caption" color="white">
+              Read More
+            </Typography>
+          </Button>
+        </Box>
+        {/* <a href={`posts/${data.slug}/detail`}>
             <Box
               component="div"
               sx={{
@@ -83,7 +78,6 @@ export default function UserPostCard({ data }) {
               </Typography>
               </Box>
             </a> */}
-        </Box>
       </Box>
     </Box>
   );

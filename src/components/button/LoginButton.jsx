@@ -6,6 +6,10 @@ const useStyles = makeStyles({
     backgroundColor: "#0e185f",
     borderRadius: "30px",
     color: "white",
+    "&:hover": {
+      backgroundColor: "#0e185f",
+      color: "white",
+    },
   },
 });
 
