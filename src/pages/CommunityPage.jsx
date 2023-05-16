@@ -45,7 +45,7 @@ const CommunityPage = () => {
         <Header />
         <Box component="div" sx={{ padding: "2em 3em" }}>
           <Typography
-            variant="h3"
+            variant="h4"
             sx={{ display: "inline" }}
             fontWeight={600}
             color="#0e185f"
