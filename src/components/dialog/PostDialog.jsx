@@ -1,9 +1,32 @@
-import React from "react";
-import { Box, Button, Input, Typography } from "@mui/material";
+import React, { Fragment, useState } from "react";
+import { Box, Button, Dialog, Input, Typography } from "@mui/material";
 import UserAvatar from "../UserAvatar";
+import PlusCircleOutlineIcon from "../../assets/icons/ic_plus_circle_outline.svg";
 
 export default function PostDialog() {
+  const [open, setOpen] = useState(false)
+  const handleDialogOpen = () => {
+      setOpen(true);
+    };
+  
+    const handleDialogClose = () => {
+      setOpen(false);
+    };
+
   return (
+    <Fragment>
+
+    <Button onClick={handleDialogOpen} sx={{ margin: 0, padding: 0 }}>
+    <Box component="div" padding={0}>
+      <img
+        src={PlusCircleOutlineIcon}
+        width={25}
+        height={25}
+        alt="Add Event"
+      />
+    </Box>
+  </Button>
+  <Dialog open={open}>
     <Box
       component="div"
       sx={{
@@ -26,7 +49,11 @@ export default function PostDialog() {
           paddingBottom: "1em",
         }}
       >
-        <Typography variant="subtitle1" color="#0e185f" fontWeight={500}>
+        <Typography
+          variant="subtitle1"
+          color="#0e185f"
+          fontWeight={500}
+        >
           Mau sharing apa?
         </Typography>
         <Box component="div" sx={{ height: 100 }}>
@@ -35,9 +62,9 @@ export default function PostDialog() {
             fullWidth
             multiline
             sx={{
+              backgroundColor: "white",
               height: "100%",
               borderRadius: 3,
-              backgroundColor: "white",
               padding: "1em",
             }}
             placeholder="Tulis di sini..."
@@ -45,7 +72,11 @@ export default function PostDialog() {
         </Box>
       </Box>
       <Box component="div" sx={{ paddingBottom: "0.5em" }}>
-        <Typography variant="subtitle1" color="#0e185f" fontWeight={500}>
+        <Typography
+          variant="subtitle1"
+          color="#0e185f"
+          fontWeight={500}
+        >
           Link #BelajarBareng
         </Typography>
         <Input
@@ -80,7 +111,7 @@ export default function PostDialog() {
             backgroundColor: "white",
           }}
         >
-          <Button>
+          <Button onClick={handleDialogClose}>
             <Typography variant="caption" color="#ec2424">
               Discard
             </Typography>
@@ -104,5 +135,7 @@ export default function PostDialog() {
         </Box>
       </Box>
     </Box>
+  </Dialog>
+    </Fragment>
   );
 }
