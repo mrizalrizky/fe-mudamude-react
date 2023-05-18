@@ -72,11 +72,11 @@ export default function EventCard({ event }) {
               alt="Event Banner"
             />
           </div>
-          <Box className={styles.categoryBox}>{event.name}</Box>
+          <Box className={styles.categoryBox}>Webinar</Box>
         </div>
         <CardContent sx={{ marginTop: "8px", marginLeft: "10px" }}>
           <Typography variant="h6" color="#0e185f" fontWeight={600}>
-            {event.title}
+            Belajar bersama
           </Typography>
           <Typography
             variant="body2"
@@ -84,7 +84,7 @@ export default function EventCard({ event }) {
             fontSize={16}
             fontWeight={500}
           >
-            {event.organizer_name}
+            Universitas Bina Nusantara
           </Typography>
           <Typography
             variant="caption"
@@ -92,7 +92,8 @@ export default function EventCard({ event }) {
             fontSize={12}
             fontWeight={400}
           >
-            {moment(event.event_date).format("DD MMMM YYYY")}
+            Universitas Bina NUSNATARA
+            {/* {moment(event.event_date).format("DD MMMM YYYY")} */}
           </Typography>
         </CardContent>
       </Link>

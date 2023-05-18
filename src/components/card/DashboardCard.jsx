@@ -8,7 +8,7 @@ import lockIcon from "../../assets/icons/ic_lock.svg";
 
 export default function DashboardCard(props) {
   return (
-    <Box component="div" sx={{ display: "inline-block", marginLeft: "10em" }}>
+    <Box component="div" sx={{ display: "inline-block" }}>
       <Typography
         variant="h4"
         color="#0e185f"

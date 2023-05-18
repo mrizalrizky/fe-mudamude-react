@@ -3,19 +3,19 @@ import React from "react";
 import Header from "../components/Header";
 import DashboardCard from "../components/card/DashboardCard";
 import UserAvatar from "../components/UserAvatar";
+import Footer from "../components/Footer";
 
 const UserProfilePage = () => {
   return (
     <>
       <Header />
-      <Box component="div" sx={{ display: "flex", backgroundColor: "aqua" }}>
+      <Box component="div" sx={{ display: "flex", paddingLeft: "10em" }}>
         <DashboardCard />
         <Box
           component="div"
           sx={{
-            width: "auto",
+            width: "100%",
             marginLeft: "5em",
-            backgroundColor: "red",
           }}
         >
           <Box component="div">
@@ -23,7 +23,7 @@ const UserProfilePage = () => {
               Edit Profile
             </Typography>
           </Box>
-          <Box component="div" sx={{ backgroundColor: "magenta" }}>
+          <Box component="div" sx={{ marginBottom: "1.5em" }}>
             <Typography variant="h6">Your account information</Typography>
           </Box>
           <Box
@@ -31,7 +31,6 @@ const UserProfilePage = () => {
             sx={{
               width: 375,
               height: "auto",
-              //   paddingTop:
               padding: "0.5em 2.5em 2.5em 2.5em",
               backgroundColor: "#f4f4f4",
               borderRadius: 5,
@@ -122,6 +121,7 @@ const UserProfilePage = () => {
           </Box>
         </Box>
       </Box>
+      <Footer />
     </>
   );
 };
