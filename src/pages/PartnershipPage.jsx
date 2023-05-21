@@ -1,9 +1,11 @@
 import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { Box, Button, Container, Typography } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 import Banner from "../assets/images/banner.png";
 import EventCard from "../components/card/EventCard";
+import MemberBenefitCard from "../components/card/MemberBenefitCard";
+import axios from "axios";
 
 const PartnershipPage = () => {
   return (
@@ -62,33 +64,16 @@ const PartnershipPage = () => {
         <Box
           component="div"
           sx={{
-            width: 250,
-            height: "auto",
-            backgroundColor: "#f4f4f4",
-            borderRadius: 5,
             display: "flex",
             justifyContent: "center",
-            alignItems: "center",
-            flexDirection: "column",
-            gap: "2em",
+            gap: "5em",
+            flexWrap: "wrap",
+            marginBottom: "1em",
           }}
         >
-          <Typography variant="body1" fontWeight={600} color="#0e185f">
-            Express
-          </Typography>
-          <Typography vairant="subtitle1" fontWeight={500} color="#0e185f">
-            Rp 0/bulan
-          </Typography>
-          <Button
-            sx={{
-              backgroundColor: "#0e185f",
-              color: "white",
-              borderRadius: 10,
-              paddingX: "3em",
-            }}
-          >
-            Beli
-          </Button>
+          <MemberBenefitCard />
+          <MemberBenefitCard />
+          <MemberBenefitCard />
         </Box>
       </Container>
       <Footer />

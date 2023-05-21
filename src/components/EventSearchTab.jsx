@@ -122,15 +122,21 @@ export default function EventSearchTab() {
                 alt="Category"
               />
             </Box>
-            <Button sx={{ margin: 0, padding: 0 }}>
-              <img
-                src={PlusCircleOutlineIcon}
-                width={35}
-                height={35}
-                alt="Add Post"
-              />
-            </Button>
           </Box>
+          <Button
+            sx={{
+              marginLeft: "0.75em",
+              backgroundColor: "red",
+              padding: 0,
+            }}
+          >
+            <img
+              src={PlusCircleOutlineIcon}
+              width={35}
+              height={35}
+              alt="Add Post"
+            />
+          </Button>
         </Box>
       </Box>
     </>
