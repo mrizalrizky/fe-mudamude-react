@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { Avatar, Box, Typography } from "@mui/material";
 import DashboardItem from "../DashboardItem";
 import personIcon from "../../assets/icons/ic_profile.svg";
 import noteIcon from "../../assets/icons/ic_events.svg";
 import cardIcon from "../../assets/icons/ic_card.svg";
 import lockIcon from "../../assets/icons/ic_lock.svg";
+import { useLocation } from "react-router";
+import { useNavigate } from "react-router-dom";
 
 export default function DashboardCard(props) {
+  const navigate = useNavigate();
+  const currentPath = useLocation().pathname;
+  const [pageComponent, setPageComponent] = useState("USER_PROFILE");
+
   return (
     <Box component="div" sx={{ display: "inline-block" }}>
       <Typography
@@ -52,10 +58,42 @@ export default function DashboardCard(props) {
           </Typography>
         </Box>
         <Box component="div" sx={{ marginTop: "20px" }}>
-          <DashboardItem title="Profile" image={personIcon} />
-          <DashboardItem title="Events" image={noteIcon} />
-          <DashboardItem title="Membership" image={cardIcon} />
-          <DashboardItem title="Security" image={lockIcon} />
+          <DashboardItem
+            title="Profile"
+            icon={personIcon}
+            isActive={currentPath === "/profile"}
+            onClick={() => {
+              setPageComponent("USER_PROFILE");
+              navigate("/profile");
+            }}
+          />
+          <DashboardItem
+            title="Events"
+            icon={noteIcon}
+            isActive={currentPath === "/profile/event"}
+            onClick={() => {
+              setPageComponent("USER_EVENTS");
+              navigate("/profile/event");
+            }}
+          />
+          <DashboardItem
+            title="Membership"
+            icon={cardIcon}
+            isActive={currentPath === "/profile/membership"}
+            onClick={() => {
+              setPageComponent("USER_MEMBERSHIP");
+              navigate("/profile/membership");
+            }}
+          />
+          <DashboardItem
+            title="Security"
+            icon={lockIcon}
+            isActive={currentPath === "/profile/security"}
+            onClick={() => {
+              setPageComponent("USER_SECURITY");
+              navigate("/profile/security");
+            }}
+          />
         </Box>
         <Box
           component="div"

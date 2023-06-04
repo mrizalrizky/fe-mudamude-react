@@ -28,7 +28,7 @@ const EventPage = () => {
           flexDirection: "column",
         }}
       >
-        <Header />
+        <Header bgColor="#f4f4f4" />
         <Box component="div" sx={{ padding: "2em 3em" }}>
           <Typography
             variant="h4"
@@ -50,7 +50,6 @@ const EventPage = () => {
             paddingX: "12em",
             paddingY: "1.5em",
             display: "flex",
-            backgroundColor: "aqua",
           }}
         >
           <Typography variant="h5" fontWeight={600} color="#0e185f">
@@ -67,7 +66,6 @@ const EventPage = () => {
             display: "flex",
             justifyContent: "center",
             flexWrap: "wrap",
-            backgroundColor: "green",
           }}
         >
           {events.length > 0 ? (

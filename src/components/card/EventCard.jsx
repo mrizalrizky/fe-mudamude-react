@@ -50,7 +50,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function EventCard({ event }) {
+export default function EventCard({ data }) {
   const styles = useStyles();
 
   return (
@@ -63,7 +63,7 @@ export default function EventCard({ event }) {
         boxShadow: "none",
       }}
     >
-      <Link href="http://google.com" className={styles.link}>
+      <Link href={`/event/${data.slug}/detail`} className={styles.link}>
         <div className={styles.container}>
           <div className={styles.imgContainer}>
             <img
@@ -72,11 +72,11 @@ export default function EventCard({ event }) {
               alt="Event Banner"
             />
           </div>
-          <Box className={styles.categoryBox}>Webinar</Box>
+          <Box className={styles.categoryBox}>{data.category_name}</Box>
         </div>
         <CardContent sx={{ marginTop: "8px", marginLeft: "10px" }}>
           <Typography variant="h6" color="#0e185f" fontWeight={600}>
-            Belajar bersama
+            {data.title}
           </Typography>
           <Typography
             variant="body2"
@@ -84,7 +84,7 @@ export default function EventCard({ event }) {
             fontSize={16}
             fontWeight={500}
           >
-            Universitas Bina Nusantara
+            {data.organizer_name}
           </Typography>
           <Typography
             variant="caption"
@@ -92,8 +92,7 @@ export default function EventCard({ event }) {
             fontSize={12}
             fontWeight={400}
           >
-            Universitas Bina NUSNATARA
-            {/* {moment(event.event_date).format("DD MMMM YYYY")} */}
+            {moment(data.event_date).format("DD MMMM YYYY")}
           </Typography>
         </CardContent>
       </Link>

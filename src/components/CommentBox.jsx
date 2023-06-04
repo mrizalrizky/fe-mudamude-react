@@ -21,18 +21,6 @@ export default function CommentBox({ data }) {
       <Box component="div">
         <img src={CommentIcon} width={30} height={30} alt="Comment" />
       </Box>
-      {/* VERSI 1 */}
-      {/* <Box component="div" sx={{ display: "flex", flexDirection: "column" }}>
-        <Typography variant="caption">{data.fullName}</Typography>
-
-        <Typography variant="caption">
-          {moment(data.createdAt).format("DD MMMM YY hh.mm A")}
-        </Typography>
-      </Box>
-      <Typography variant="body1" color="#0e185f">
-        {data.comment}
-      </Typography> */}
-      {/* VERSI 2 */}
       <Box
         component="div"
         sx={{

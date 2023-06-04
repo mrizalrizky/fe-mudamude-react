@@ -11,6 +11,7 @@ const SubmitButton = (props) => {
         backgroundColor: props.bgColor,
         color: props.textColor,
         borderRadius: "50px",
+        textTransform: "none",
       }}
     >
       {props.title}

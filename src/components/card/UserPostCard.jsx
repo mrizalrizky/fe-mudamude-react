@@ -50,6 +50,7 @@ export default function UserPostCard({ data }) {
               padding: "0.25em 0.75em",
               display: "inline-flex",
               backgroundColor: "#0e185f",
+              textTransform: "none",
               "&:hover": {
                 backgroundColor: "#0e185f",
               },

@@ -7,7 +7,6 @@ import CategoryIcon from "../assets/icons/ic_square_dots.svg";
 import PlusCircleOutlineIcon from "../assets/icons/ic_plus_circle_outline.svg";
 
 export default function EventSearchTab() {
-  const handleCreateEvent = () => {};
   return (
     <>
       <Box
@@ -18,7 +17,6 @@ export default function EventSearchTab() {
           alignItems: "center",
           justifyContent: "center",
           marginTop: "-1em",
-          //   backgroundColor: "red",
         }}
       >
         <Box
@@ -126,9 +124,9 @@ export default function EventSearchTab() {
           <Button
             sx={{
               marginLeft: "0.75em",
-              backgroundColor: "red",
               padding: 0,
             }}
+            href="/upload-event"
           >
             <img
               src={PlusCircleOutlineIcon}

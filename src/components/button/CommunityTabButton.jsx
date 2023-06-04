@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../../App.css";
 import {
   Dialog,
   Typography,
@@ -7,19 +8,31 @@ import {
   Input,
   FormControl,
 } from "@mui/material";
-// import { Button } from '@mui/base'
 import PlusCircleOutlineIcon from "../../assets/icons/ic_plus_circle_outline.svg";
-import PostDialog from "../dialog/PostDialog";
 import UserAvatar from "../../components/UserAvatar";
-import { useLocation } from "react-router";
 import axios from "axios";
+import { makeStyles } from "@mui/styles";
+
+const useStyles = makeStyles({
+  active: {
+    backgroundColor: "white",
+    color: "#0e185f",
+  },
+
+  btnText: {
+    backgroundColor: "#0e185f",
+    color: "white",
+  },
+});
 
 export default function CommunityTabButton() {
   const [postContent, setPostContent] = useState("");
   const [postUrl, setPostUrl] = useState("");
+  const [pageComponent, setPageComponent] = useState("USER_POSTS");
+
+  const styles = useStyles();
 
   const [open, setOpen] = useState(false);
-  const pathName = useLocation().pathname;
 
   const handleSubmitPost = async () => {
     const postData = {
@@ -31,7 +44,6 @@ export default function CommunityTabButton() {
   };
 
   const handleDialogOpen = () => {
-    console.log(pathName);
     setOpen(true);
   };
 
@@ -47,7 +59,7 @@ export default function CommunityTabButton() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        marginTop: "-1.5em",
+        marginTop: "-1em",
       }}
     >
       <Box
@@ -59,41 +71,42 @@ export default function CommunityTabButton() {
           padding: "1.25em 1.75em",
         }}
       >
-        <a
-          href="/community"
+        <Button
+          sx={{
+            borderRadius: 2,
+            padding: "0.25em 1em 0.25em 1em",
+            marginLeft: "0.25em",
+            textTransform: "none",
+          }}
+          className={
+            pageComponent === "USER_POSTS" ? styles.active : styles.btnText
+          }
           onClick={() => {
-            console.log(pathName);
+            setPageComponent("USER_POSTS");
           }}
         >
-          <Box
-            component="div"
-            sx={{
-              backgroundColor: "#0e185f",
-              borderRadius: 2,
-              padding: "0.25em 1em 0.25em 1em",
-              marginLeft: "0.25em",
-            }}
-          >
-            <Typography variant="subtitle2" color={"white"} fontWeight={600}>
-              Belajar Bareng
-            </Typography>
-          </Box>
-        </a>
-        <Box
-          component="div"
+          <Typography variant="subtitle2" fontWeight={600}>
+            Belajar Bareng
+          </Typography>
+        </Button>
+        <Button
           sx={{
-            backgroundColor: "white",
             borderRadius: 2,
             marginLeft: "0.25em",
             padding: "0.25em 1em 0.25em 1em",
+            textTransform: "none",
+          }}
+          className={
+            pageComponent === "TIPS_ARTICLES" ? styles.active : styles.btnText
+          }
+          onClick={() => {
+            setPageComponent("TIPS_ARTICLES");
           }}
         >
-          <Typography variant="body2" color={"#0e185f"} fontWeight={600}>
+          <Typography variant="subtitle2" fontWeight={600}>
             Tips & Artikel
           </Typography>
-        </Box>
-
-        {pathName === "/articles" ? <PostDialog /> : ""}
+        </Button>
         <Button onClick={handleDialogOpen} sx={{ margin: 0, padding: 0 }}>
           <Box component="div" padding={0}>
             <img
@@ -197,7 +210,10 @@ export default function CommunityTabButton() {
                     backgroundColor: "white",
                   }}
                 >
-                  <Button onClick={handleDialogClose}>
+                  <Button
+                    onClick={handleDialogClose}
+                    sx={{ textTransform: "none" }}
+                  >
                     <Typography variant="caption" color="#ec2424">
                       Discard
                     </Typography>
@@ -213,7 +229,10 @@ export default function CommunityTabButton() {
                     backgroundColor: "#0e185f",
                   }}
                 >
-                  <Button onClick={handleSubmitPost}>
+                  <Button
+                    onClick={handleSubmitPost}
+                    sx={{ textTransform: "none" }}
+                  >
                     <Typography variant="caption" color="white">
                       Send
                     </Typography>

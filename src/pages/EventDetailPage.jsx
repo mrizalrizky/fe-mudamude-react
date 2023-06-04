@@ -1,37 +1,46 @@
-import React from "react";
-import { Box, Button, Typography } from "@mui/material";
+import React, { useEffect, useState } from "react";
+import { Box, Button, List, ListItem, Typography } from "@mui/material";
 import { useParams } from "react-router-dom";
 import moment from "moment";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import EventBanner from "../assets/images/banner.png";
 import LocationIcon from "../assets/icons/ic_location.svg";
 import CalendarIcon from "../assets/icons/ic_calendar.svg";
 import OrganizerIcon from "../assets/icons/ic_organizer.svg";
-import CrossedCalendarIcon from "../assets/icons/ic_calendar_cross.svg";
 import { styled } from "@mui/system";
+import axios from "axios";
+import EventDescription from "../containers/EventsContainer/EventDescription";
+import EventDetails from "../containers/EventsContainer/EventDetails";
 
-const BasicButton = styled(Button)({
-  backgroundColor: "#f4f4f4",
-  color: "#0e185f",
+const BaseButton = styled(Button)({
   borderRadius: 20,
   width: 125,
   padding: "0.5em 1.5em",
-  "&:active": {
-    backgroundColor: "#0e185f",
-    color: "white",
-  },
+  backgroundColor: "#f4f4f4",
+  color: "#0e185f",
 });
 
 const EventDetailPage = () => {
   const { slug } = useParams();
+  const [eventDetails, setEventDetails] = useState([]);
+  const [pageComponent, setPageComponent] = useState("EVENT_DESCRIPTION");
+
+  useEffect(() => {
+    const getEventDetails = async () => {
+      const res = await axios.get(
+        `${process.env.REACT_APP_API_URL}/event/${slug}/detail`
+      );
+      setEventDetails(res.data.data);
+    };
+    getEventDetails();
+  }, []);
   return (
     <>
       <Header />
-      <Box component="div" sx={{paddingX: 20}}>
+      <Box component="div" sx={{ paddingX: 20 }}>
         <Box component="div">
           <Typography variant="h5" fontWeight={600} color="#0e185f">
-            Stress Management
+            {eventDetails.title}
           </Typography>
         </Box>
         <Box
@@ -40,7 +49,7 @@ const EventDetailPage = () => {
             height: "auto",
             paddingY: "1em",
             display: "flex",
-            justifyContent: 'center',
+            justifyContent: "center",
           }}
         >
           <Box
@@ -54,8 +63,7 @@ const EventDetailPage = () => {
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
-          >
-          </Box>
+          />
           <Box
             component="div"
             sx={{
@@ -76,7 +84,7 @@ const EventDetailPage = () => {
                 justifyContent: "center",
               }}
             >
-              Webinar
+              {eventDetails.category_name}
             </Typography>
             <Box
               component="div"
@@ -98,7 +106,7 @@ const EventDetailPage = () => {
               >
                 <img src={LocationIcon} alt="Location Icon" />
                 <Typography variant="caption" fontWeight={600} color="#0e185f">
-                  Online
+                  {eventDetails.location}
                 </Typography>
               </Box>
               <Box
@@ -111,7 +119,7 @@ const EventDetailPage = () => {
               >
                 <img src={CalendarIcon} alt="Calendar Icon" />
                 <Typography variant="caption" fontWeight={600} color="#0e185f">
-                  {moment("2023-04-05").format("DD MMMM YYYY")}
+                  {moment(eventDetails.event_date).format("DD MMMM YYYY")}
                 </Typography>
               </Box>
               <Box
@@ -124,7 +132,7 @@ const EventDetailPage = () => {
               >
                 <img src={OrganizerIcon} alt="Organizer Icon" />
                 <Typography variant="caption" fontWeight={600} color="#0e185f">
-                  Online
+                  {eventDetails.location}
                 </Typography>
               </Box>
             </Box>
@@ -154,92 +162,53 @@ const EventDetailPage = () => {
           sx={{
             display: "flex",
             gap: "1em",
-            marginBottom: "1em",
+            marginBottom: "2em",
           }}
         >
-          <BasicButton>Description</BasicButton>
-          <BasicButton>Details</BasicButton>
-        </Box>
-        <Box component="div">
-          <Typography variant="h6">Event Details</Typography>
-          <Box
-            component="div"
+          <BaseButton
             sx={{
-              display: "flex",
-              flexDirection: "column",
-              gap: "0.75em",
-              marginY: "1.25em",
+              color: pageComponent === "EVENT_DESCRIPTION" && "white",
+              backgroundColor:
+                pageComponent === "EVENT_DESCRIPTION" && "#0e185f",
+              "&:hover": {
+                color: pageComponent === "EVENT_DESCRIPTION" && "white",
+                backgroundColor:
+                  pageComponent === "EVENT_DESCRIPTION" && "#0e185f",
+              },
+            }}
+            onClick={() => {
+              setPageComponent("EVENT_DESCRIPTION");
             }}
           >
-            <Box
-              component="div"
-              sx={{
-                display: "flex",
-                gap: "0.5em",
-                alignItems: "center",
-              }}
-            >
-              <img src={LocationIcon} alt="Location Icon" />
-              <Typography variant="caption" fontWeight={600} color="#0e185f">
-                Location: Online
-              </Typography>
-            </Box>
-            <Box
-              component="div"
-              sx={{
-                display: "flex",
-                gap: "0.5em",
-                alignItems: "center",
-              }}
-            >
-              <img src={CalendarIcon} alt="Calendar Icon" />
-              <Typography variant="caption" fontWeight={600} color="#0e185f">
-                Date : {moment("2023-04-05").format("DD MMMM YYYY")}
-              </Typography>
-            </Box>
-            <Box
-              component="div"
-              sx={{
-                display: "flex",
-                gap: "0.5em",
-                alignItems: "center",
-              }}
-            >
-              <img src={OrganizerIcon} alt="Organizer Icon" />
-              <Typography variant="caption" fontWeight={600} color="#0e185f">
-                Organizer : UGM
-              </Typography>
-            </Box>
-            <Box
-              component="div"
-              sx={{
-                display: "flex",
-                gap: "0.5em",
-                alignItems: "center",
-              }}
-            >
-              <img src={CrossedCalendarIcon} alt="Organizer Icon" />
-              <Typography variant="caption" fontWeight={600} color="#0e185f">
-                Registration Deadline :{" "}
-                {moment("20220930").format("DD MMMM YYYY")}
-              </Typography>
-            </Box>
-          </Box>
-          <Box component="div" sx={{ marginBottom: "2em" }}>
-            <Typography variant="h6">Benefits</Typography>
-            <Box component="div">
-              <Typography variant="body1">TESTT</Typography>
-              <Typography variant="body1">TESTT</Typography>
-              <Typography variant="body1">TESTT</Typography>
-            </Box>
-          </Box>
-          <Box component="div">
-            <Typography variant="h6">Eligibility</Typography>
-            <Typography variant="body1">TESTT</Typography>
-            <Typography variant="body1">TESTT</Typography>
-            <Typography variant="body1">TESTT</Typography>
-          </Box>
+            Description
+          </BaseButton>
+          <BaseButton
+            sx={{
+              color: pageComponent === "EVENT_DETAILS" && "white",
+              backgroundColor: pageComponent === "EVENT_DETAILS" && "#0e185f",
+              "&:hover": {
+                color: pageComponent === "EVENT_DETAILS" && "white",
+                backgroundColor: pageComponent === "EVENT_DETAILS" && "#0e185f",
+              },
+            }}
+            onClick={() => {
+              setPageComponent("EVENT_DETAILS");
+            }}
+          >
+            Details
+          </BaseButton>
         </Box>
+        {pageComponent === "EVENT_DESCRIPTION" && (
+          <EventDescription description={eventDetails.description} />
+        )}
+        {pageComponent === "EVENT_DETAILS" && (
+          <EventDetails
+            location={eventDetails.location}
+            eventDate={eventDetails.event_date}
+            eventTime={eventDetails.event_time}
+            organizerName={eventDetails.organizer_name}
+          />
+        )}
       </Box>
       <Footer />
     </>

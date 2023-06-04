@@ -20,7 +20,7 @@ const CheckIcon = styled("img")({
   height: "25px",
 });
 
-export default function MemberBenefitCard() {
+export default function MembershipBenefitCard({ name, price }) {
   return (
     <Box
       component="div"
@@ -47,10 +47,10 @@ export default function MemberBenefitCard() {
         }}
       >
         <Typography variant="body1" fontWeight={700} color="#0e185f">
-          Express
+          {name}
         </Typography>
         <Typography vairant="subtitle1" fontWeight={600} color="#0e185f">
-          Rp 0/bulan
+          Rp {price.toLocaleString("id-ID")}/bulan
         </Typography>
       </Box>
       <List

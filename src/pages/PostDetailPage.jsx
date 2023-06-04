@@ -12,17 +12,15 @@ import SendIcon from "../assets/icons/ic_send.svg";
 import CommentBox from "../components/CommentBox";
 import { useParams } from "react-router";
 
-const PostDetailPage = ({ data }) => {
+const PostDetailPage = () => {
   const { slug } = useParams();
   const [postDetail, setPostDetail] = useState({});
-  const [comments, setComments] = useState([]);
+  const [postRepliesList, setPostRepliesList] = useState([]);
 
   const getPostDetails = async () => {
     const response = await axios.get(
       `http://localhost:3344/api/posts/${slug}/detail`
     );
-    console.log(response.data);
-    console.log(response.data.data);
     setPostDetail(response.data.data);
   };
 
@@ -30,7 +28,11 @@ const PostDetailPage = ({ data }) => {
     const response = await axios.get(
       "http://localhost:3344/api/posts/comments?id_post=1"
     );
-    setComments(response.data.data);
+    setPostRepliesList(response.data.data);
+  };
+
+  const handleCreateComment = async () => {
+    console.log();
   };
 
   useEffect(() => {
@@ -40,7 +42,7 @@ const PostDetailPage = ({ data }) => {
 
   return (
     <>
-      <Header />
+      <Header bgColor="white" />
       <Container
         sx={{
           backgroundColor: "#f4f4f4",
@@ -51,6 +53,7 @@ const PostDetailPage = ({ data }) => {
           paddingBottom: "0.5em",
           display: "flex",
           flexDirection: "column",
+          marginTop: "3em",
         }}
       >
         <Box
@@ -110,31 +113,17 @@ const PostDetailPage = ({ data }) => {
                 padding: "0.25em 1.75em",
                 marginTop: "0.1em",
                 justifyContent: "flex-end",
+                textTransform: "none",
+                "&:hover": {
+                  color: "white",
+                  backgroundColor: "#0e185f",
+                },
               }}
             >
               <Typography variant="body1" fontWeight={600} color="white">
                 Join
               </Typography>
             </Button>
-            {/* <a href={`http://${postDetail.url}`}>
-              <Box
-                component="div"
-                sx={{
-                  width: "auto",
-                  borderRadius: 3,
-                  backgroundColor: "#0e185f",
-                  display: "flex",
-                  alignItems: "center",
-                  padding: "0.25em 1.75em",
-                  marginTop: "0.1em",
-                  justifyContent: "flex-end",
-                }}
-              >
-                <Typography variant="body1" fontWeight={600} color="white">
-                  Join
-                </Typography>
-              </Box>
-            </a> */}
           </Box>
         </Box>
         <Box component="div" sx={{ display: "flex", gap: "1em" }}>
@@ -164,13 +153,15 @@ const PostDetailPage = ({ data }) => {
             placeholder="Tulis komentar..."
             sx={{ paddingRight: "0.5em" }}
           />
-          <img src={SendIcon} width={25} height={25} alt="Send Comment" />
+          <Button onClick={handleCreateComment}>
+            <img src={SendIcon} width={25} height={25} alt="Send Comment" />
+          </Button>
         </Box>
-        {comments.length > 0 ? (
-          comments.map((comment) => {
+        {postRepliesList.length > 0 ? (
+          postRepliesList.map((replies) => {
             return (
-              <Box key={comment.id_post_comment} component="div">
-                <CommentBox data={comment} />;
+              <Box component="div" key={postRepliesList.id_post_comment}>
+                <CommentBox data={replies} />
               </Box>
             );
           })

@@ -1,6 +1,12 @@
 import React from "react";
 import { styled } from "@mui/system";
-import { Paper, ThemeProvider, createTheme, Typography } from "@mui/material";
+import {
+  Paper,
+  ThemeProvider,
+  createTheme,
+  Typography,
+  Button,
+} from "@mui/material";
 
 const theme = createTheme({
   pallete: {
@@ -10,37 +16,39 @@ const theme = createTheme({
   },
 });
 
-const Item = styled(Paper)(({ theme }) => ({
-  // backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "f4f4f4",
+const StyledButton = styled(Button)(({ theme }) => ({
   backgroundColor: "#f4f4f4",
   color: theme.pallete.primary.main,
   padding: theme.spacing(1),
   textAlign: "center",
-  width: "13.5em",
+  width: "15.5em",
+  marginX: "20px",
   marginLeft: "20px",
   marginRight: "20px",
-  height: "3.5em",
+  height: "4em",
   display: "flex",
   alignItems: "center",
   boxShadow: "none",
   borderRadius: "15px",
+  textTransform: "none",
+  "&:hover": {
+    color: "#0e185f",
+    backgroundColor: "white",
+  },
 }));
 
-export default function DashboardItem(props) {
+export default function DashboardItem({ isActive, onClick, title, icon }) {
   return (
     <ThemeProvider theme={theme}>
-      <Item>
-        <img
-          src={props.image}
-          width={30}
-          height={45}
-          className="mx-2 me-3"
-          alt="Icon"
-        />
+      <StyledButton
+        startIcon={<img src={icon} width={30} height={45} alt="Icon" />}
+        sx={{ backgroundColor: isActive ? "white" : "" }}
+        onClick={onClick}
+      >
         <Typography variant="h6" fontWeight={600}>
-          {props.title}
+          {title}
         </Typography>
-      </Item>
+      </StyledButton>
     </ThemeProvider>
   );
 }

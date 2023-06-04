@@ -3,9 +3,13 @@ import logo from "../assets/logo.svg";
 import NavButton from "./button/NavButton";
 import LoginButton from "./button/LoginButton";
 
-const Header = (props) => {
+const Header = ({ bgColor }) => {
+  const backgroundColor = bgColor ? bgColor : "white";
   return (
-    <nav className="navbar navbar-expand-lg">
+    <nav
+      className="navbar navbar-expand-lg"
+      style={{ backgroundColor: backgroundColor }}
+    >
       <a className="navbar-brand" href="/">
         <img width={125} height={128} src={logo} alt="MudaMude" />
       </a>

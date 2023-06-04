@@ -22,7 +22,7 @@ export default function UserAvatar(props) {
         <Typography variant="h6" fontWeight={600} color={"#0e185f"}>
           {props.fullName}
         </Typography>
-        <Typography variant="subtitle2" color={"#0e185f"}>
+        <Typography variant="subtitle1" color={"#0e185f"}>
           {props.institution}
         </Typography>
       </Box>
