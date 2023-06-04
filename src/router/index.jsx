@@ -1,21 +1,16 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "../pages/Home";
-import RegisterPage from "../pages/RegisterPage";
-import LoginPage from "../pages/LoginPage";
-import UserEventPage from "../pages/UserEventPage";
 import EventPage from "../pages/EventPage";
 import CommunityPage from "../pages/CommunityPage";
 import PartnershipPage from "../pages/PartnershipPage";
 import AboutPage from "../pages/AboutPage";
 import PostDetailPage from "../pages/PostDetailPage";
-import ForgotPasswordPage from "../pages/ForgotPasswordPage";
 import EventDetailPage from "../pages/EventDetailPage";
 import ProfilePage from "../pages/ProfilePage";
 import ArticleDetail from "../pages/ArticleDetail";
-import "../App.css";
 import UploadEventPage from "../pages/UploadEventPage";
-import { UserEvent } from "../containers/ProfileContainer/UserEvent";
+import AuthPage from "../pages/AuthPage";
 
 export default function AppRouter() {
   return (
@@ -59,9 +54,37 @@ export default function AppRouter() {
             />
           }
         />
-        <Route exact path="/register" element={<RegisterPage />} />
-        <Route exact path="/login" element={<LoginPage />} />
-        <Route exact path="/forgot" element={<ForgotPasswordPage />} />
+        <Route
+          exact
+          path="/register"
+          element={
+            <AuthPage
+              title="Buat akun baru"
+              description="Daftarkan akunmu di sini!"
+            />
+          }
+        />
+        <Route
+          exact
+          path="/login"
+          element={
+            <AuthPage
+              title="Masuk ke akun kamu"
+              description="Login menggunakan akunmu"
+            />
+          }
+        />
+        <Route
+          exact
+          path="/forgot-password"
+          element={
+            <AuthPage
+              title="Lupa Password"
+              description="Masukan emailmu untuk reset password"
+            />
+          }
+        />
+        {/* <Route exact path="/forgot" element={<ForgotPasswordPage />} /> */}
         <Route exact path="/event" element={<EventPage />} />
         <Route exact path="/event/:slug/detail" element={<EventDetailPage />} />
         <Route exact path="/upload-event" element={<UploadEventPage />} />

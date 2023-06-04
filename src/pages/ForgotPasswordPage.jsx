@@ -12,14 +12,14 @@ const ForgotPasswordPage = () => {
         <Box component="div" sx={{ width: 375, marginRight: "2em" }}>
           <Box component="div" sx={{ marginBottom: "3em" }}>
             <Typography
-              variant="h4"
+              variant="h5"
               sx={{ display: "inline" }}
               fontWeight={600}
               color="#0e185f"
             >
               Lupa Password
             </Typography>
-            <Typography variant="h6">
+            <Typography variant="body1" color="#0e185f">
               Masukan emailmu untuk reset password
             </Typography>
           </Box>
