@@ -85,9 +85,9 @@ export default function UploadEventForm() {
           marginTop: "3em",
           display: "flex",
           justifyContent: "center",
+          backgroundColor: "magenta",
         }}
       >
-        {console.log(eventData)}
         <Box
           component="div"
           sx={{

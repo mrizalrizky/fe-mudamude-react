@@ -15,6 +15,6 @@ const StyledButton = styled(Button)({
   },
 });
 
-export default function AuthSubmitButton({ name }) {
-  return <StyledButton variant="contained">{name}</StyledButton>;
+export default function AuthSubmitButton({ title }) {
+  return <StyledButton variant="contained">{title}</StyledButton>;
 }

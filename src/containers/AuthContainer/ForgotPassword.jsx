@@ -1,26 +1,12 @@
 import React from "react";
-import { Box, Button, Input, Typography } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Box } from "@mui/material";
 import AuthSubmitButton from "../../components/button/AuthSubmitButton";
+import { AuthInput } from "../../components/inputs/AuthInput";
 
 export const ForgotPassword = () => {
   return (
     <>
-      <Box component="div" sx={{ marginBottom: "1em" }}>
-        <Typography variant="body1" color="#0e185f" fontWeight={500}>
-          Email address
-        </Typography>
-        <Input
-          disableUnderline
-          fullWidth
-          sx={{
-            backgroundColor: "white",
-            padding: "0.5em",
-            alignItems: "center",
-            borderRadius: 2,
-          }}
-        />
-      </Box>
+      <AuthInput title="Email address" name="email" />
       <Box
         component="div"
         sx={{
@@ -28,7 +14,7 @@ export const ForgotPassword = () => {
           justifyContent: "center",
         }}
       >
-        <AuthSubmitButton name="Send" />
+        <AuthSubmitButton title="Send" />
       </Box>
     </>
   );

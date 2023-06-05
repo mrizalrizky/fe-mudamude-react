@@ -1,40 +1,12 @@
 import React from "react";
-import { Box, Button, Input, Typography } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Box, Button, Typography } from "@mui/material";
+import { AuthInput } from "../../components/inputs/AuthInput";
 
 export const Login = () => {
   return (
     <>
-      <Box component="div" sx={{ marginBottom: "1em" }}>
-        <Typography variant="body1" color="#0e185f" fontWeight={500}>
-          Email address
-        </Typography>
-        <Input
-          disableUnderline
-          fullWidth
-          sx={{
-            backgroundColor: "white",
-            padding: "0.5em",
-            alignItems: "center",
-            borderRadius: 2,
-          }}
-        />
-      </Box>
-      <Box component="div">
-        <Typography variant="body1" color="#0e185f" fontWeight={500}>
-          Password
-        </Typography>
-        <Input
-          disableUnderline
-          fullWidth
-          sx={{
-            backgroundColor: "white",
-            padding: "0.5em",
-            alignItems: "center",
-            borderRadius: 2,
-          }}
-        />
-      </Box>
+      <AuthInput title="Email address" name="email" />
+      <AuthInput title="Password" name="password" />
       <Box
         component="div"
         sx={{
@@ -43,11 +15,11 @@ export const Login = () => {
           marginBottom: "1.5em",
         }}
       >
-        <Link underline="none">
+        <a href="/forgot-password" style={{ textDecoration: "none" }}>
           <Typography variant="caption" color="#0e185f">
             Lupa password?
           </Typography>
-        </Link>
+        </a>
       </Box>
       <Box
         component="div"
@@ -105,11 +77,11 @@ export const Login = () => {
           alignItems: "center",
         }}
       >
-        <Link underline="none" href="/register">
+        <a href="/register" style={{ textDecoration: "none" }}>
           <Typography variant="caption" color="#0e185f">
             Belum punya akun? Yuk daftar dulu!
           </Typography>
-        </Link>
+        </a>
       </Box>
     </>
   );

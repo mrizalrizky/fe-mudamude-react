@@ -1,86 +1,16 @@
 import React from "react";
-import { Box, Button, Input, Typography } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Box, Typography } from "@mui/material";
 import AuthSubmitButton from "../../components/button/AuthSubmitButton";
+import { AuthInput } from "../../components/inputs/AuthInput";
 
 export const Register = () => {
   return (
     <>
-      <Box component="div" sx={{ marginBottom: "1em" }}>
-        <Typography variant="body1" color="#0e185f" fontWeight={500}>
-          Full Name
-        </Typography>
-        <Input
-          disableUnderline
-          fullWidth
-          sx={{
-            backgroundColor: "white",
-            padding: "0.5em",
-            alignItems: "center",
-            borderRadius: 2,
-          }}
-        />
-      </Box>
-      <Box component="div" sx={{ marginBottom: "1em" }}>
-        <Typography variant="body1" color="#0e185f" fontWeight={500}>
-          Username
-        </Typography>
-        <Input
-          disableUnderline
-          fullWidth
-          sx={{
-            backgroundColor: "white",
-            padding: "0.5em",
-            alignItems: "center",
-            borderRadius: 2,
-          }}
-        />
-      </Box>
-      <Box component="div" sx={{ marginBottom: "1em" }}>
-        <Typography variant="body1" color="#0e185f" fontWeight={500}>
-          Email Address
-        </Typography>
-        <Input
-          disableUnderline
-          fullWidth
-          sx={{
-            backgroundColor: "white",
-            padding: "0.5em",
-            alignItems: "center",
-            borderRadius: 2,
-          }}
-        />
-      </Box>
-      <Box component="div" sx={{ marginBottom: "1em" }}>
-        <Typography variant="body1" color="#0e185f" fontWeight={500}>
-          Password
-        </Typography>
-        <Input
-          disableUnderline
-          fullWidth
-          sx={{
-            backgroundColor: "white",
-            padding: "0.5em",
-            alignItems: "center",
-            borderRadius: 2,
-          }}
-        />
-      </Box>
-      <Box component="div">
-        <Typography variant="body1" color="#0e185f" fontWeight={500}>
-          Confirm Password
-        </Typography>
-        <Input
-          disableUnderline
-          fullWidth
-          sx={{
-            backgroundColor: "white",
-            padding: "0.5em",
-            alignItems: "center",
-            borderRadius: 2,
-          }}
-        />
-      </Box>
+      <AuthInput title="Full Name" name="full_name" />
+      <AuthInput title="Username" name="username" />
+      <AuthInput title="Email address" name="email" />
+      <AuthInput title="Password" name="password" />
+      <AuthInput title="Confirm Password" name="confirm_password" />
       <Box
         component="div"
         sx={{
@@ -89,11 +19,11 @@ export const Register = () => {
           marginBottom: "1em",
         }}
       >
-        <Link underline="none" href="/login">
+        <a href="/login" style={{ textDecoration: "none" }}>
           <Typography variant="caption" color="#0e185f">
-            Terms & Conditions
+            Sudah punya akun? Masuk di sini
           </Typography>
-        </Link>
+        </a>
       </Box>
       <Box
         component="div"
@@ -102,7 +32,7 @@ export const Register = () => {
           justifyContent: "center",
         }}
       >
-        <AuthSubmitButton name="Register" />
+        <AuthSubmitButton title="Register" />
       </Box>
     </>
   );

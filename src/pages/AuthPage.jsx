@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../components/Header";
-import { Box, Button, Container, Input, Typography } from "@mui/material";
-import AuthBanner from "../assets/images/auth_banner.jpg";
+import { Box, Container, Typography } from "@mui/material";
+import AuthBanner from "../assets/images/auth_banner2.png";
 import Footer from "../components/Footer";
 import { Login } from "../containers/AuthContainer/Login";
 import { Register } from "../containers/AuthContainer/Register";
