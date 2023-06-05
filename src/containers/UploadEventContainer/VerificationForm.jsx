@@ -5,7 +5,7 @@ import ArrowButton from "../../components/button/ArrowButton";
 import ArrowLeft from "../../assets/icons/ic_arrow_left.svg";
 import VerifyButton from "../../components/button/VerifyButton";
 
-export const VerificationForm = ({ onPrevious }) => {
+export const VerificationForm = ({ onPrevious, onNext }) => {
   return (
     <>
       <Box component="div">
@@ -43,7 +43,7 @@ export const VerificationForm = ({ onPrevious }) => {
           }}
         >
           <ArrowButton onClick={onPrevious} icon={ArrowLeft} />
-          <VerifyButton />
+          <VerifyButton onClick={onNext} />
         </Box>
       </Box>
     </>

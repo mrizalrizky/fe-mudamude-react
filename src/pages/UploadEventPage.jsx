@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { Box, Button, Container, Input, Typography } from "@mui/material";
+import { Box, Container, Input, Typography } from "@mui/material";
 import UploadEventForm from "../components/forms/UploadEventForm";
 import { styled } from "@mui/system";
-import { AuthInput } from "../components/inputs/AuthInput";
 import { VerificationForm } from "../containers/UploadEventContainer/VerificationForm";
 import { VerificationStepTwo } from "../containers/UploadEventContainer/VerificationStepTwo";
 import { VerificationStepOne } from "../containers/UploadEventContainer/VerificationStepOne";
+import { VerificationSuccess } from "../containers/UploadEventContainer/VerificationSuccess";
+import { EventUploaded } from "../containers/UploadEventContainer/EventUploaded";
 
 const StyledInput = styled(Input)({
   backgroundColor: "white",
@@ -18,6 +19,8 @@ const steps = [
   "VERIFICATION_STEP_ONE",
   "VERIFICATION_STEP_TWO",
   "VERIFICATION_FORM",
+  "VERIFICATION_SUCCESS",
+  "UPLOAD_EVENT_FORM",
 ];
 
 const UploadEventPage = () => {
@@ -52,7 +55,15 @@ const UploadEventPage = () => {
         );
 
       case "VERIFICATION_FORM":
-        return <VerificationForm onPrevious={handlePrevious} />;
+        return (
+          <VerificationForm onPrevious={handlePrevious} onNext={handleNext} />
+        );
+
+      case "VERIFICATION_SUCCESS":
+        return <VerificationSuccess onNext={handleNext} />;
+
+      case "UPLOAD_EVENT_FORM":
+        return <UploadEventForm />;
 
       default:
     }

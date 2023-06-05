@@ -1,7 +1,7 @@
 import { Box, Button } from "@mui/material";
 import React from "react";
 
-export default function VerifyButton() {
+export default function VerifyButton({ onClick }) {
   return (
     <Button
       component="div"
@@ -16,7 +16,12 @@ export default function VerifyButton() {
         borderRadius: 5,
         marginX: "0.75em",
         marginY: "1em",
+        "&:hover": {
+          backgroundColor: "#0e185f",
+          color: "white",
+        },
       }}
+      onClick={onClick}
     >
       Verify
     </Button>
