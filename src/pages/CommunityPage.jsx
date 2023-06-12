@@ -298,15 +298,19 @@ const CommunityPage = () => {
               </Typography>
             </Box>
             <Box
+          component="div"
+          sx={{
+            width: "auto",
+            paddingX: "5em",
+            marginBottom: "2em",
+            display: "flex",
+            justifyContent:'center'
+          }}
+        >
+            <Box
               component="div"
-              sx={{
-                width: "auto",
-                paddingX: "5em",
-                marginBottom: "2em",
-                gap: "5em",
-                display: "flex",
-                justifyContent: "center",
-                flexWrap: "wrap",
+              sx={{ backgroundColor: 'red',
+                width: '81vw', display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '3.65em',
               }}
             >
               {postList.length > 0 ? (
@@ -316,6 +320,7 @@ const CommunityPage = () => {
               ) : (
                 <p>Empty</p>
               )}
+            </Box>
             </Box>
           </>
         )}
@@ -345,20 +350,30 @@ const CommunityPage = () => {
               </Typography>
             </Box>
             <Box
+          component="div"
+          sx={{
+            width: "auto",
+            paddingX: "5em",
+            marginBottom: "2em",
+            display: "flex",
+            justifyContent:'center'
+          }}
+        >
+            <Box
               component="div"
-              sx={{
-                width: "auto",
-                paddingX: "5em",
-                marginBottom: "2em",
-                gap: "5em",
-                display: "flex",
-                justifyContent: "center",
-                flexWrap: "wrap",
+              sx={{ backgroundColor: 'red',
+                width: '81vw', display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '5.3em',
               }}
             >
-              <ArticleCard />
-              <ArticleCard />
-            </Box>
+              <ArticleCard/>
+              <ArticleCard/>
+              <ArticleCard/>
+              <ArticleCard/>
+              <ArticleCard/>
+              <ArticleCard/>
+              <ArticleCard/>
+              </Box>
+              </Box>
           </>
         )}
         <Footer />

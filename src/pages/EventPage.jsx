@@ -62,19 +62,19 @@ const EventPage = () => {
             width: "auto",
             paddingX: "5em",
             marginBottom: "2em",
-            gap: "5em",
             display: "flex",
-            justifyContent: "center",
-            flexWrap: "wrap",
+            justifyContent:'center'
           }}
         >
+          <Box component="div" sx={{width: '81vw',display:'flex', flexDirection:'row', flexWrap: 'wrap', gap:'5.3em'}}>
           {events.length > 0 ? (
             events.map((data) => {
-              return <EventCard data={data} />;
+              return <EventCard data={data}/>;
             })
-          ) : (
+            ) : (
             <p>Empty</p>
-          )}
+            )}
+          </Box>
         </Box>
         <Footer />
       </Box>
