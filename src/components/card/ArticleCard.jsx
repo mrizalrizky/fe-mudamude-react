@@ -8,6 +8,13 @@ import { Link } from "@mui/material";
 import moment from "moment";
 
 const useStyles = makeStyles({
+  card: {
+    width: 325,
+    height: 345,
+    borderRadius: 6,
+    backgroundColor: "#f4f4f4",
+    boxShadow: "none",
+  },
   box: {
     maxWidth: 345,
     borderRadius: 5,
@@ -36,13 +43,14 @@ export default function ArticleCard({ article }) {
 
   return (
     <Card
-      sx={{
-        width: 325,
-        height: 345,
-        borderRadius: 6,
-        backgroundColor: "#f4f4f4",
-        boxShadow: "none",
-      }}
+      className={styles.card}
+      // sx={{
+      //   width: 325,
+      //   height: 345,
+      //   borderRadius: 6,
+      //   backgroundColor: "#f4f4f4",
+      //   boxShadow: "none",
+      // }}
     >
       <Link href="http://google.com" className={styles.link}>
         <div className={styles.container}>

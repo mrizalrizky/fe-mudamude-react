@@ -73,6 +73,11 @@ export default function MembershipBenefitCard({ name, price }) {
           color: "white",
           borderRadius: 10,
           paddingX: "3em",
+          textTransform: "none",
+          "&:hover": {
+            backgroundColor: "#0e185f",
+            color: "white",
+          },
         }}
       >
         Beli

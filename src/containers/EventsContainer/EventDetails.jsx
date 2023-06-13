@@ -47,7 +47,10 @@ export default function EventDetails({
         >
           <img src={CalendarIcon} alt="Calendar Icon" />
           <Typography variant="caption" fontWeight={600} color="#0e185f">
-            {moment(eventDate + " " + eventTime).format("DD MMMM YYYY HH:mm")}
+            {moment(eventDate).format("DD MMMM YYYY") +
+              " " +
+              moment(eventTime).format("HH:mm") +
+              " WIB"}
           </Typography>
         </Box>
         <Box
