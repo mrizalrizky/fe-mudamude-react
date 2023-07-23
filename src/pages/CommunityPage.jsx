@@ -16,6 +16,7 @@ import ArticleCard from "../components/card/ArticleCard";
 import UserAvatar from "../components/UserAvatar";
 import BaseTabButton from "../components/button/BaseTabButton";
 import { styled } from "@mui/system";
+import Breadcrumb from "../components/Breadcrumb";
 
 const BaseButton = styled(Button)({
   borderRadius: 8.5,
@@ -99,19 +100,10 @@ const CommunityPage = () => {
         }}
       >
         <Header bgColor="#f4f4f4" />
-        <Box component="div" sx={{ padding: "2em 3em" }}>
-          <Typography
-            variant="h4"
-            sx={{ display: "inline" }}
-            fontWeight={600}
-            color="#0e185f"
-          >
-            Community
-          </Typography>
-          <Typography variant="h6">
-            Yuk kolaborasi bareng teman-teman lain di sini!
-          </Typography>
-        </Box>
+        <Breadcrumb
+          title="Community"
+          description="Yuk kolaborasi bareng teman-teman lain di sini!"
+        />
         <Box
           component="div"
           sx={{
@@ -298,29 +290,34 @@ const CommunityPage = () => {
               </Typography>
             </Box>
             <Box
-          component="div"
-          sx={{
-            width: "auto",
-            paddingX: "5em",
-            marginBottom: "2em",
-            display: "flex",
-            justifyContent:'center'
-          }}
-        >
-            <Box
               component="div"
-              sx={{ backgroundColor: 'red',
-                width: '81vw', display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '3.65em',
+              sx={{
+                width: "auto",
+                paddingX: "5em",
+                marginBottom: "2em",
+                display: "flex",
+                justifyContent: "center",
               }}
             >
-              {postList.length > 0 ? (
-                postList.map((post) => {
-                  return <UserPostCard data={post} />;
-                })
-              ) : (
-                <p>Empty</p>
-              )}
-            </Box>
+              <Box
+                component="div"
+                sx={{
+                  backgroundColor: "red",
+                  width: "81vw",
+                  display: "flex",
+                  flexDirection: "row",
+                  flexWrap: "wrap",
+                  gap: "3.65em",
+                }}
+              >
+                {postList.length > 0 ? (
+                  postList.map((post) => {
+                    return <UserPostCard data={post} />;
+                  })
+                ) : (
+                  <p>Empty</p>
+                )}
+              </Box>
             </Box>
           </>
         )}
@@ -350,30 +347,35 @@ const CommunityPage = () => {
               </Typography>
             </Box>
             <Box
-          component="div"
-          sx={{
-            width: "auto",
-            paddingX: "5em",
-            marginBottom: "2em",
-            display: "flex",
-            justifyContent:'center'
-          }}
-        >
-            <Box
               component="div"
-              sx={{ backgroundColor: 'red',
-                width: '81vw', display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '5.3em',
+              sx={{
+                width: "auto",
+                paddingX: "5em",
+                marginBottom: "2em",
+                display: "flex",
+                justifyContent: "center",
               }}
             >
-              <ArticleCard/>
-              <ArticleCard/>
-              <ArticleCard/>
-              <ArticleCard/>
-              <ArticleCard/>
-              <ArticleCard/>
-              <ArticleCard/>
+              <Box
+                component="div"
+                sx={{
+                  backgroundColor: "red",
+                  width: "81vw",
+                  display: "flex",
+                  flexDirection: "row",
+                  flexWrap: "wrap",
+                  gap: "5.3em",
+                }}
+              >
+                <ArticleCard />
+                <ArticleCard />
+                <ArticleCard />
+                <ArticleCard />
+                <ArticleCard />
+                <ArticleCard />
+                <ArticleCard />
               </Box>
-              </Box>
+            </Box>
           </>
         )}
         <Footer />

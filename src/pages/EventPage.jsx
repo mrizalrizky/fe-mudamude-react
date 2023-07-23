@@ -5,6 +5,7 @@ import EventCard from "../components/card/EventCard";
 import axios from "axios";
 import { Box, Typography } from "@mui/material";
 import EventSearchTab from "../components/EventSearchTab";
+import Breadcrumb from "../components/Breadcrumb";
 
 const EventPage = () => {
   const [events, setEvents] = useState([]);
@@ -29,21 +30,11 @@ const EventPage = () => {
         }}
       >
         <Header bgColor="#f4f4f4" />
-        <Box component="div" sx={{ padding: "2em 3em" }}>
-          <Typography
-            variant="h4"
-            sx={{ display: "inline" }}
-            fontWeight={600}
-            color="#0e185f"
-          >
-            Mulai cari event & kegiatan
-          </Typography>
-          <Typography variant="h6" color="#0e185f">
-            buat bantu kamu kembangin diri!
-          </Typography>
-        </Box>
+        <Breadcrumb
+          title="Mulai cari event & kegiatan"
+          description="buat bantu kembangin diri!"
+        />
         <EventSearchTab />
-
         <Box
           component="div"
           sx={{
@@ -63,16 +54,25 @@ const EventPage = () => {
             paddingX: "5em",
             marginBottom: "2em",
             display: "flex",
-            justifyContent:'center'
+            justifyContent: "center",
           }}
         >
-          <Box component="div" sx={{width: '81vw',display:'flex', flexDirection:'row', flexWrap: 'wrap', gap:'5.3em'}}>
-          {events.length > 0 ? (
-            events.map((data) => {
-              return <EventCard data={data}/>;
-            })
+          <Box
+            component="div"
+            sx={{
+              width: "81vw",
+              display: "flex",
+              flexDirection: "row",
+              flexWrap: "wrap",
+              gap: "5.3em",
+            }}
+          >
+            {events.length > 0 ? (
+              events.map((data) => {
+                return <EventCard data={data} />;
+              })
             ) : (
-            <p>Empty</p>
+              <p>Empty</p>
             )}
           </Box>
         </Box>

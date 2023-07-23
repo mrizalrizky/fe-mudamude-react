@@ -1,20 +1,20 @@
 import React from "react";
-import { Box, Input, Typography } from "@mui/material";
+import { Box, Input, TextField, Typography } from "@mui/material";
 
-export const AuthInput = ({ title, name }) => {
+export const AuthInput = ({ title, name, type, onChange }) => {
   return (
     <Box component="div" sx={{ marginBottom: "1em" }}>
       <Typography variant="body1" color="#0e185f" fontWeight={500}>
         {title}
       </Typography>
-      <Input
+      <TextField
         disableUnderline
         fullWidth
         name={name}
+        onChange={onChange}
+        type={type}
         sx={{
           backgroundColor: "white",
-          padding: "0.5em",
-          alignItems: "center",
           borderRadius: 2,
         }}
       />

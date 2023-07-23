@@ -1,4 +1,4 @@
-import { Box, Input, Typography } from "@mui/material";
+import { Box, TextField, Typography } from "@mui/material";
 import React from "react";
 import UserAvatar from "../../components/UserAvatar";
 
@@ -28,11 +28,10 @@ export const UserProfile = () => {
         <Typography variant="body1" color="#0e185f" fontWeight={500}>
           Full Name
         </Typography>
-        <Input
+        <TextField
           disableUnderline
           sx={{
             backgroundColor: "white",
-            padding: "0.5em",
             alignItems: "center",
             borderRadius: 2,
             marginTop: "0.5em",
@@ -43,11 +42,10 @@ export const UserProfile = () => {
         <Typography variant="body1" color="#0e185f" fontWeight={500}>
           Username
         </Typography>
-        <Input
+        <TextField
           disableUnderline
           sx={{
             backgroundColor: "white",
-            padding: "0.5em",
             alignItems: "center",
             borderRadius: 2,
             marginTop: "0.5em",
@@ -58,11 +56,10 @@ export const UserProfile = () => {
         <Typography variant="body1" color="#0e185f" fontWeight={500}>
           Email Address
         </Typography>
-        <Input
+        <TextField
           disableUnderline
           sx={{
             backgroundColor: "white",
-            padding: "0.5em",
             alignItems: "center",
             borderRadius: 2,
             marginTop: "0.5em",
@@ -73,11 +70,10 @@ export const UserProfile = () => {
         <Typography variant="body1" color="#0e185f" fontWeight={500}>
           Password
         </Typography>
-        <Input
+        <TextField
           disableUnderline
           sx={{
             backgroundColor: "white",
-            padding: "0.5em",
             alignItems: "center",
             borderRadius: 2,
             marginTop: "0.5em",
@@ -88,12 +84,11 @@ export const UserProfile = () => {
         <Typography variant="body1" color="#0e185f" fontWeight={500}>
           Confirm Password
         </Typography>
-        <Input
+        <TextField
           disableUnderline
           // fullWidth
           sx={{
             backgroundColor: "white",
-            padding: "0.5em",
             alignItems: "center",
             borderRadius: 2,
             marginTop: "0.5em",
