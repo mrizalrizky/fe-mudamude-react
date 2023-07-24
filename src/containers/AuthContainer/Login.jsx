@@ -1,12 +1,49 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box, Button, Typography } from "@mui/material";
 import { AuthInput } from "../../components/inputs/AuthInput";
+import { Link } from "react-router-dom";
+import axios from "axios";
 
 export const Login = () => {
+  const [userData, setUserData] = useState({
+    username: null,
+    password: null,
+  });
+
+  const submitHandler = async () => {
+    const response = await axios.post(
+      `${process.env.REACT_APP_API_URL}/auth/login`,
+      userData
+    );
+
+    if (response && response.data) {
+      // window.location.assign("/");
+    }
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+
+    setUserData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
   return (
     <>
-      <AuthInput title="Email address" name="email" />
-      <AuthInput title="Password" name="password" />
+      <AuthInput
+        title="Username"
+        name="username"
+        type="text"
+        onChange={handleInputChange}
+      />
+      <AuthInput
+        title="Password"
+        name="password"
+        type="password"
+        onChange={handleInputChange}
+      />
       <Box
         component="div"
         sx={{
@@ -15,11 +52,11 @@ export const Login = () => {
           marginBottom: "1.5em",
         }}
       >
-        <a href="/forgot-password" style={{ textDecoration: "none" }}>
+        <Link to="/forgot-password" style={{ textDecoration: "none" }}>
           <Typography variant="caption" color="#0e185f">
             Lupa password?
           </Typography>
-        </a>
+        </Link>
       </Box>
       <Box
         component="div"
@@ -44,6 +81,7 @@ export const Login = () => {
               color: "white",
               marginBottom: "1em",
             }}
+            onClick={submitHandler}
           >
             Login
           </Button>

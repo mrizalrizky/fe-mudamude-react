@@ -16,6 +16,7 @@ import ArticleCard from "../components/card/ArticleCard";
 import UserAvatar from "../components/UserAvatar";
 import BaseTabButton from "../components/button/BaseTabButton";
 import { styled } from "@mui/system";
+import Breadcrumb from "../components/Breadcrumb";
 
 const BaseButton = styled(Button)({
   borderRadius: 8.5,
@@ -99,19 +100,10 @@ const CommunityPage = () => {
         }}
       >
         <Header bgColor="#f4f4f4" />
-        <Box component="div" sx={{ padding: "2em 3em" }}>
-          <Typography
-            variant="h4"
-            sx={{ display: "inline" }}
-            fontWeight={600}
-            color="#0e185f"
-          >
-            Community
-          </Typography>
-          <Typography variant="h6">
-            Yuk kolaborasi bareng teman-teman lain di sini!
-          </Typography>
-        </Box>
+        <Breadcrumb
+          title="Community"
+          description="Yuk kolaborasi bareng teman-teman lain di sini!"
+        />
         <Box
           component="div"
           sx={{

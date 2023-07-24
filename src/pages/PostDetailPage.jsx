@@ -19,14 +19,14 @@ const PostDetailPage = () => {
 
   const getPostDetails = async () => {
     const response = await axios.get(
-      `http://localhost:3344/api/posts/${slug}/detail`
+      `${process.env.REACT_APP_API_URL}/posts/${slug}/detail`
     );
     setPostDetail(response.data.data);
   };
 
   const getUserComments = async () => {
     const response = await axios.get(
-      "http://localhost:3344/api/posts/comments?id_post=1"
+      `${process.env.REACT_APP_API_URL}/posts/comments?id_post=1`
     );
     setPostRepliesList(response.data.data);
   };

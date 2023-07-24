@@ -15,6 +15,10 @@ const StyledButton = styled(Button)({
   },
 });
 
-export default function AuthSubmitButton({ title }) {
-  return <StyledButton variant="contained">{title}</StyledButton>;
+export default function AuthSubmitButton({ onClick }) {
+  return (
+    <StyledButton onClick={onClick} variant="contained">
+      Register
+    </StyledButton>
+  );
 }
