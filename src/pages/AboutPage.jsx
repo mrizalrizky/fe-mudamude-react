@@ -23,8 +23,13 @@ const AboutPage = () => {
             marginBottom: "2em",
           }}
         >
-          <Box component="div" sx={{ backgroundColor: "magenta" }}>
-            <img src={AboutBanner} alt="About Banner" />
+          <Box component="div" sx={{ marginY: "2em" }}>
+            <img
+              width="600px"
+              height="auto"
+              src={AboutBanner}
+              alt="About Banner"
+            />
           </Box>
         </Box>
         <Box

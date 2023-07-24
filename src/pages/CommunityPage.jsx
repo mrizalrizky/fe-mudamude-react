@@ -298,29 +298,34 @@ const CommunityPage = () => {
               </Typography>
             </Box>
             <Box
-          component="div"
-          sx={{
-            width: "auto",
-            paddingX: "5em",
-            marginBottom: "2em",
-            display: "flex",
-            justifyContent:'center'
-          }}
-        >
-            <Box
               component="div"
-              sx={{ backgroundColor: 'red',
-                width: '81vw', display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '3.65em',
+              sx={{
+                width: "auto",
+                paddingX: "5em",
+                marginBottom: "2em",
+                display: "flex",
+                justifyContent: "center",
               }}
             >
-              {postList.length > 0 ? (
-                postList.map((post) => {
-                  return <UserPostCard data={post} />;
-                })
-              ) : (
-                <p>Empty</p>
-              )}
-            </Box>
+              <Box
+                component="div"
+                sx={{
+                  backgroundColor: "red",
+                  width: "81vw",
+                  display: "flex",
+                  flexDirection: "row",
+                  flexWrap: "wrap",
+                  gap: "3.65em",
+                }}
+              >
+                {postList.length > 0 ? (
+                  postList.map((post) => {
+                    return <UserPostCard data={post} />;
+                  })
+                ) : (
+                  <p>Empty</p>
+                )}
+              </Box>
             </Box>
           </>
         )}
@@ -350,30 +355,35 @@ const CommunityPage = () => {
               </Typography>
             </Box>
             <Box
-          component="div"
-          sx={{
-            width: "auto",
-            paddingX: "5em",
-            marginBottom: "2em",
-            display: "flex",
-            justifyContent:'center'
-          }}
-        >
-            <Box
               component="div"
-              sx={{ backgroundColor: 'red',
-                width: '81vw', display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '5.3em',
+              sx={{
+                width: "auto",
+                paddingX: "5em",
+                marginBottom: "2em",
+                display: "flex",
+                justifyContent: "center",
               }}
             >
-              <ArticleCard/>
-              <ArticleCard/>
-              <ArticleCard/>
-              <ArticleCard/>
-              <ArticleCard/>
-              <ArticleCard/>
-              <ArticleCard/>
+              <Box
+                component="div"
+                sx={{
+                  backgroundColor: "red",
+                  width: "81vw",
+                  display: "flex",
+                  flexDirection: "row",
+                  flexWrap: "wrap",
+                  gap: "5.3em",
+                }}
+              >
+                <ArticleCard />
+                <ArticleCard />
+                <ArticleCard />
+                <ArticleCard />
+                <ArticleCard />
+                <ArticleCard />
+                <ArticleCard />
               </Box>
-              </Box>
+            </Box>
           </>
         )}
         <Footer />
