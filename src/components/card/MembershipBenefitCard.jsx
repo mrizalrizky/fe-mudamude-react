@@ -25,7 +25,7 @@ export default function MembershipBenefitCard({ name, price }) {
     <Box
       component="div"
       sx={{
-        width: 275,
+        width: "275px",
         height: "auto",
         backgroundColor: "#f4f4f4",
         borderRadius: 5,

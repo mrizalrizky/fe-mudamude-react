@@ -63,7 +63,7 @@ export default function EventCard({ data }) {
         boxShadow: "none",
       }}
     >
-      <Link href={`/event/${data.slug}/detail`} className={styles.link}>
+      <Link href={`/event/test/detail`} className={styles.link}>
         <div className={styles.container}>
           <div className={styles.imgContainer}>
             <img
@@ -72,11 +72,11 @@ export default function EventCard({ data }) {
               alt="Event Banner"
             />
           </div>
-          <Box className={styles.categoryBox}>{data.category_name}</Box>
+          <Box className={styles.categoryBox}>sfajkfsajksf</Box>
         </div>
         <CardContent sx={{ marginTop: "8px", marginLeft: "10px" }}>
           <Typography variant="h6" color="#0e185f" fontWeight={600}>
-            {data.title}
+            testaa
           </Typography>
           <Typography
             variant="body2"
@@ -84,7 +84,7 @@ export default function EventCard({ data }) {
             fontSize={16}
             fontWeight={500}
           >
-            {data.organizer_name}
+            asdasddsa
           </Typography>
           <Typography
             variant="caption"
@@ -92,7 +92,8 @@ export default function EventCard({ data }) {
             fontSize={12}
             fontWeight={400}
           >
-            {moment(data.event_date).format("DD MMMM YYYY")}
+            safsfafsa
+            {/* {moment(data.event_date).format("DD MMMM YYYY")} */}
           </Typography>
         </CardContent>
       </Link>

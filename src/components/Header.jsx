@@ -20,8 +20,7 @@ const Header = ({ bgColor }) => {
         <NavButton name="Partnership" href="/partnership" />
         <NavButton name="About" href="/about" />
       </ul>
-      {localStorage.getItem("token")}
-      {localStorage.getItem("token") && <LoginButton />}
+      <LoginButton />
     </nav>
   );
 };
