@@ -17,7 +17,8 @@ export const Login = () => {
     );
 
     if (response && response.data) {
-      // window.location.assign("/");
+      localStorage.setItem("token", response.data.data.access_token);
+      window.location.assign("/");
     }
   };
 
