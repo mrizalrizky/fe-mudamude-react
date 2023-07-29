@@ -1,12 +1,12 @@
 import React from "react";
-import { Box, Button, Input, Typography } from "@mui/material";
-import SearchIcon from "../assets/icons/ic_search.svg";
-import CalendarIcon from "../assets/icons/ic_calendar.svg";
-import LocationIcon from "../assets/icons/ic_location.svg";
-import CategoryIcon from "../assets/icons/ic_square_dots.svg";
-import PlusCircleOutlineIcon from "../assets/icons/ic_plus_circle_outline.svg";
+import { Box, Button, Grid, Input } from "@mui/material";
+import SearchIcon from "../../assets/icons/ic_search.svg";
+import CalendarIcon from "../../assets/icons/ic_calendar.svg";
+import LocationIcon from "../../assets/icons/ic_location.svg";
+import CategoryIcon from "../../assets/icons/ic_square_dots.svg";
+import PlusCircleOutlineIcon from "../../assets/icons/ic_plus_circle_outline.svg";
 
-export default function EventSearchTab() {
+export default function MenuBarInput() {
   return (
     <>
       <Box
@@ -137,6 +137,65 @@ export default function EventSearchTab() {
           </Button>
         </Box>
       </Box>
+      <Grid
+        container
+        sx={{
+          width: "fit-content",
+          padding: "1.25em 1.75em",
+          borderRadius: 5,
+          backgroundColor: "#0e185f",
+          gap: "1.5em",
+        }}
+      >
+        <Grid
+          item
+          sx={{
+            padding: "0.25em 0.5em",
+            borderRadius: 2,
+            backgroundColor: "white",
+          }}
+        >
+          <Input disableUnderline placeholder="Cari event" />
+          <img
+            src={SearchIcon}
+            width={16}
+            height={16}
+            style={{ marginLeft: "0.5em" }}
+            alt="Search Icon"
+          />
+        </Grid>
+        <Grid
+          item
+          sx={{
+            padding: "0.25em 0.5em",
+            borderRadius: 2,
+            backgroundColor: "white",
+          }}
+        >
+          <Input disableUnderline placeholder="Category" />
+          <img
+            src={CategoryIcon}
+            width={16}
+            height={16}
+            style={{ marginLeft: "0.5em" }}
+            alt="Category"
+          />
+        </Grid>
+
+        <Button
+          sx={{
+            padding: 0,
+          }}
+          href="/upload-event"
+        >
+          <img
+            src={PlusCircleOutlineIcon}
+            width={35}
+            height={35}
+            alt="Add Post"
+          />
+        </Button>
+      </Grid>
     </>
   );
 }

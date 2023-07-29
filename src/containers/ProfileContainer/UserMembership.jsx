@@ -1,100 +1,74 @@
-import { Box, TextField, Typography } from "@mui/material";
-import React from "react";
-import UserAvatar from "../../components/UserAvatar";
+import React, { useEffect, useState } from "react";
+import { Box, Grid, Stack, TextField, Typography } from "@mui/material";
+import MembershipBenefitCard from "../../components/card/MembershipBenefitCard";
+import MembershipIcon from "../../assets/icons/ic_membership.svg";
 
 export const UserMembership = () => {
   return (
-    <Box
-      component="div"
-      sx={{
-        width: 400,
-        height: "auto",
-        padding: "0.5em 2.5em 2.5em 2.5em",
-        backgroundColor: "red",
-        borderRadius: 5,
-        marginLeft: "7.5em",
-      }}
-    >
-      <UserAvatar
-        fullName="Jane Evelyn"
-        institution="Universitas Bina Nusantara"
-      />
-      <Box component="div" sx={{ marginY: "1em" }}>
+    <Stack gap="3em">
+      <Box
+        component="div"
+        sx={{
+          height: "auto",
+          marginRight: "5em",
+          padding: "2em 2.5em",
+          backgroundColor: "#f4f4f4",
+          borderRadius: 5,
+        }}
+      >
         <Typography variant="h5" color="#0e185f" fontWeight={600}>
-          Personal Information
+          Membership Status
         </Typography>
-      </Box>
-      <Box component="div" sx={{ marginBottom: "1.5em" }}>
-        <Typography variant="body1" color="#0e185f" fontWeight={500}>
-          Full Name
-        </Typography>
-        <TextField
-          disableUnderline
+        <Grid
+          container
           sx={{
-            backgroundColor: "white",
             alignItems: "center",
+            padding: "0.5em 2em 0.5em 1em",
+            marginTop: "1em",
+            gap: "1em",
             borderRadius: 2,
-            marginTop: "0.5em",
+            backgroundColor: "white",
+            width: "fit-content",
           }}
-        />
+        >
+          <Grid item>
+            <img src={MembershipIcon} alt="Member Icon" />
+          </Grid>
+          <Grid item>
+            <Stack>
+              <Typography color="#0e185f" fontWeight={700} fontSize="20px">
+                Express
+              </Typography>
+              <Typography color="#0e185f" fontWeight={400} fontSize="16px">
+                Berakhir pada selamanya
+              </Typography>
+            </Stack>
+          </Grid>
+        </Grid>
       </Box>
-      <Box component="div" sx={{ marginBottom: "0.5em" }}>
-        <Typography variant="body1" color="#0e185f" fontWeight={500}>
-          Username
+
+      <Box
+        component="div"
+        sx={{
+          height: "auto",
+          marginRight: "5em",
+          padding: "2em 2.5em",
+          backgroundColor: "#f4f4f4",
+          borderRadius: 5,
+        }}
+      >
+        <Typography variant="h5" color="#0e185f" fontWeight={600}>
+          Mau Upgrade?
         </Typography>
-        <TextField
-          disableUnderline
-          sx={{
-            backgroundColor: "white",
-            alignItems: "center",
-            borderRadius: 2,
-            marginTop: "0.5em",
-          }}
-        />
+        <Grid container sx={{ gap: "2em", marginTop: "1em" }}>
+          <Grid item>
+            <MembershipBenefitCard name="Lite" price="10000" bgColor="white" />
+          </Grid>
+          <Grid item>
+            <MembershipBenefitCard name="Lite" price="10000" bgColor="white" />
+          </Grid>
+        </Grid>
       </Box>
-      <Box component="div" sx={{ marginBottom: "0.5em" }}>
-        <Typography variant="body1" color="#0e185f" fontWeight={500}>
-          Email Address
-        </Typography>
-        <TextField
-          disableUnderline
-          sx={{
-            backgroundColor: "white",
-            alignItems: "center",
-            borderRadius: 2,
-            marginTop: "0.5em",
-          }}
-        />
-      </Box>
-      <Box component="div" sx={{ marginBottom: "0.5em" }}>
-        <Typography variant="body1" color="#0e185f" fontWeight={500}>
-          Password
-        </Typography>
-        <TextField
-          disableUnderline
-          sx={{
-            backgroundColor: "white",
-            alignItems: "center",
-            borderRadius: 2,
-            marginTop: "0.5em",
-          }}
-        />
-      </Box>
-      <Box component="div" sx={{ marginBottom: "0.5em" }}>
-        <Typography variant="body1" color="#0e185f" fontWeight={500}>
-          Confirm Password
-        </Typography>
-        <TextField
-          disableUnderline
-          // fullWidth
-          sx={{
-            backgroundColor: "white",
-            alignItems: "center",
-            borderRadius: 2,
-            marginTop: "0.5em",
-          }}
-        />
-      </Box>
-    </Box>
+    </Stack>
   );
 };

@@ -2,7 +2,7 @@ import { Box, TextField, Typography } from "@mui/material";
 import React from "react";
 import UserAvatar from "../../components/UserAvatar";
 
-export const UserProfile = () => {
+export const UserProfile = ({ data }) => {
   return (
     <Box
       component="div"
@@ -10,25 +10,25 @@ export const UserProfile = () => {
         width: 400,
         height: "auto",
         padding: "0.5em 2.5em 2.5em 2.5em",
-        marginLeft: "7.5em",
         borderRadius: 5,
         backgroundColor: "#f4f4f4",
       }}
     >
       <UserAvatar
-        fullName="Jane Evelyn"
-        institution="Universitas Bina Nusantara"
+        fullName={data.fullName ?? "-"}
+        institution={data.institution ?? "-"}
       />
       <Box component="div" sx={{ marginY: "1em" }}>
         <Typography variant="h5" color="#0e185f" fontWeight={600}>
           Personal Information
         </Typography>
       </Box>
-      <Box component="div" sx={{ marginBottom: "1.5em" }}>
+      <Box component="div" sx={{ marginBottom: "1em" }}>
         <Typography variant="body1" color="#0e185f" fontWeight={500}>
           Full Name
         </Typography>
         <TextField
+          placeholder={data.fullName}
           disableUnderline
           sx={{
             backgroundColor: "white",
@@ -43,6 +43,7 @@ export const UserProfile = () => {
           Username
         </Typography>
         <TextField
+          placeholder={data.username}
           disableUnderline
           sx={{
             backgroundColor: "white",
@@ -58,6 +59,7 @@ export const UserProfile = () => {
         </Typography>
         <TextField
           disableUnderline
+          placeholder={data.email}
           sx={{
             backgroundColor: "white",
             alignItems: "center",
@@ -86,7 +88,6 @@ export const UserProfile = () => {
         </Typography>
         <TextField
           disableUnderline
-          // fullWidth
           sx={{
             backgroundColor: "white",
             alignItems: "center",

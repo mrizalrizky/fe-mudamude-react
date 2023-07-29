@@ -61,24 +61,6 @@ export default function UserPostCard({ data }) {
             </Typography>
           </Button>
         </Box>
-        {/* <a href={`posts/${data.slug}/detail`}>
-            <Box
-              component="div"
-              sx={{
-                width: "auto",
-                borderRadius: 5,
-                padding: "0.25em 0.75em",
-                display: "inline-flex",
-                // justifyContent: "center",
-                // alignItems: "center",
-                backgroundColor: "#0e185f",
-              }}
-            >
-            <Typography variant="caption" color="white">
-            Read More
-              </Typography>
-              </Box>
-            </a> */}
       </Box>
     </Box>
   );

@@ -20,14 +20,14 @@ const CheckIcon = styled("img")({
   height: "25px",
 });
 
-export default function MembershipBenefitCard({ name, price }) {
+export default function MembershipBenefitCard({ name, price, bgColor }) {
   return (
     <Box
       component="div"
       sx={{
         width: "275px",
         height: "auto",
-        backgroundColor: "#f4f4f4",
+        backgroundColor: bgColor ? bgColor : "#f4f4f4",
         borderRadius: 5,
         paddingY: "2em",
         display: "flex",

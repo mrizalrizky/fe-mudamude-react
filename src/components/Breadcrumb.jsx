@@ -1,7 +1,7 @@
 import { Container, Typography } from "@mui/material";
 import React from "react";
 
-export default function Breadcrumb({ title, description }) {
+export default function Breadcrumb({ pageTitle, pageDescription }) {
   return (
     <Container sx={{ padding: "2em 0" }}>
       <Typography
@@ -10,10 +10,10 @@ export default function Breadcrumb({ title, description }) {
         fontWeight={600}
         color="#0e185f"
       >
-        {title}
+        {pageTitle}
       </Typography>
       <Typography variant="h6" color="#0e185f">
-        {description}
+        {pageDescription}
       </Typography>
     </Container>
   );

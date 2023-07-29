@@ -3,17 +3,17 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import EventCard from "../components/card/EventCard";
 import axios from "axios";
-import { Box, Typography } from "@mui/material";
-import EventSearchTab from "../components/EventSearchTab";
+import { Box, Container, Grid, Typography } from "@mui/material";
+import MenuBarInput from "../components/menubar/MenuBarInput";
 import Breadcrumb from "../components/Breadcrumb";
 
 const EventPage = () => {
-  const [events, setEvents] = useState([]);
+  const [eventList, setEventList] = useState([]);
+  const getEventList = async () => {
+    const res = await axios.get(`${process.env.REACT_APP_API_URL}/event/all`);
+    setEventList(res.data.data);
+  };
   useEffect(() => {
-    const getEventList = async () => {
-      const res = await axios.get(`${process.env.REACT_APP_API_URL}/event/all`);
-      setEvents(res.data.data);
-    };
     getEventList();
   }, []);
 
@@ -31,51 +31,31 @@ const EventPage = () => {
       >
         <Header bgColor="#f4f4f4" />
         <Breadcrumb
-          title="Mulai cari event & kegiatan"
-          description="buat bantu kembangin diri!"
+          pageTitle="Mulai cari event & kegiatan"
+          pageDescription="buat bantu kembangin diri!"
         />
-        <EventSearchTab />
-        <Box
-          component="div"
-          sx={{
-            paddingX: "12em",
-            paddingY: "1.5em",
-            display: "flex",
-          }}
-        >
+        <MenuBarInput />
+        <Container>
           <Typography variant="h5" fontWeight={600} color="#0e185f">
             All Events
           </Typography>
-        </Box>
-        <Box
-          component="div"
-          sx={{
-            width: "auto",
-            paddingX: "5em",
-            marginBottom: "2em",
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
-          <Box
-            component="div"
-            sx={{
-              width: "81vw",
-              display: "flex",
-              flexDirection: "row",
-              flexWrap: "wrap",
-              gap: "5.3em",
-            }}
+          <Grid
+            container
+            sx={{ justifyContent: "space-between", marginTop: "1em" }}
           >
-            {events.length > 0 ? (
-              events.map((data) => {
-                return <EventCard data={data} />;
+            {eventList && eventList.length > 0 ? (
+              eventList.map((event) => {
+                return (
+                  <Grid item sx={{ marginBottom: "3em" }}>
+                    <EventCard data={event} />
+                  </Grid>
+                );
               })
             ) : (
               <p>Empty</p>
             )}
-          </Box>
-        </Box>
+          </Grid>
+        </Container>
         <Footer />
       </Box>
     </>

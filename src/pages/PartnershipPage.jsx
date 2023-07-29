@@ -66,14 +66,24 @@ const PartnershipPage = () => {
 
           <Grid
             container
-            sx={{ justifyContent: "space-between", backgroundColor: "#2FA4FF" }}
+            sx={{
+              height: "250px",
+              padding: "2em",
+              alignItems: "center",
+              justifyContent: "space-between",
+              borderRadius: 5,
+              backgroundColor: "#2FA4FF",
+            }}
           >
-            <Grid sx={{ backgroundColor: "magenta" }}>
-              <Typography>Punya pertanyaan?</Typography>
+            <Grid item sx={{ flex: 1, alignItems: "center" }}>
+              <Typography fontSize="24px" fontWeight={600} color="#ffffff">
+                Upload event kamu di MudaMude dengan Jangkau Ratusan Anak Muda
+                hingga Mahasiswa Indonesia!
+              </Typography>
             </Grid>
-            <Grid>
-              <img src={banner2} />
-            </Grid>
+            {/* <Grid sx={{ flex: "0 0 auto", backgroundColor: "red" }}>
+              <img src={banner2} alt="banner 2" />
+            </Grid> */}
           </Grid>
 
           <Grid sx={{ textAlign: "center" }}>

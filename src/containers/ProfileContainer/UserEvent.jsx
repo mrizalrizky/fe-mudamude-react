@@ -1,12 +1,25 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import BaseTabButton from "../../components/button/BaseTabButton";
 import EventCard from "../../components/card/EventCard";
 import axios from "axios";
+import BaseMenuBar from "../../components/menubar/BaseMenuBar";
 
 export const UserEvent = () => {
   const [pageComponent, setPageComponent] = useState("USER_UPLOADED_EVENTS");
   const [eventList, setEventList] = useState([]);
+
+  const menuItems = [
+    {
+      label: "Uploaded",
+      key: "USER_UPLOADED_EVENTS",
+    },
+    {
+      label: "Registered",
+      key: "USER_REGISTERED_EVENTS",
+    },
+  ];
+
   const getUserUploadedEventList = async () => {
     try {
       const res = await axios.get(
@@ -46,43 +59,15 @@ export const UserEvent = () => {
 
   return (
     <>
-      <Box
-        component="div"
+      <Grid
+        container
         sx={{
-          width: "100%",
           display: "flex",
-          alignItems: "center",
           justifyContent: "center",
         }}
       >
-        <Box
-          component="div"
-          sx={{
-            backgroundColor: "#0e185f",
-            borderRadius: 5,
-            padding: "1.25em 1.75em 1.25em 1.75em",
-            display: "flex",
-            marginRight: "2px",
-          }}
-        >
-          <BaseTabButton
-            title="Uploaded"
-            variant="contained"
-            isActive={pageComponent === "USER_UPLOADED_EVENTS"}
-            onClick={() => {
-              setPageComponent("USER_UPLOADED_EVENTS");
-            }}
-          />
-          <BaseTabButton
-            title="Registered"
-            variant="contained"
-            isActive={pageComponent === "USER_REGISTERED_EVENTS"}
-            onClick={() => {
-              setPageComponent("USER_REGISTERED_EVENTS");
-            }}
-          />
-        </Box>
-      </Box>
+        <BaseMenuBar menuItems={menuItems} />
+      </Grid>
       <Box
         component="div"
         sx={{

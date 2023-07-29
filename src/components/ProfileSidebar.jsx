@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { Avatar, Box, Typography } from "@mui/material";
-import DashboardItem from "../DashboardItem";
-import personIcon from "../../assets/icons/ic_profile.svg";
-import noteIcon from "../../assets/icons/ic_events.svg";
-import cardIcon from "../../assets/icons/ic_card.svg";
-import lockIcon from "../../assets/icons/ic_lock.svg";
+import DashboardItem from "./DashboardItem";
+import personIcon from "../assets/icons/ic_profile.svg";
+import noteIcon from "../assets/icons/ic_events.svg";
+import cardIcon from "../assets/icons/ic_card.svg";
+import lockIcon from "../assets/icons/ic_lock.svg";
 import { useLocation } from "react-router";
 import { useNavigate } from "react-router-dom";
 
-export default function DashboardCard(props) {
+export default function ProfileSidebar({ data }) {
   const navigate = useNavigate();
   const currentPath = useLocation().pathname;
   const [pageComponent, setPageComponent] = useState("USER_PROFILE");
@@ -51,10 +51,10 @@ export default function DashboardCard(props) {
         >
           <Avatar sx={{ marginBottom: "15px", width: 75, height: 75 }} />
           <Typography variant="h6" fontWeight={600} color="#0e185f">
-            Jane Evelyn
+            {data.fullName ?? "-"}
           </Typography>
           <Typography variant="body2" fontWeight={400} color="#0e185f">
-            Universitas Bina Nusantara
+            {data.institution ?? "-"}
           </Typography>
         </Box>
         <Box component="div" sx={{ marginTop: "20px" }}>

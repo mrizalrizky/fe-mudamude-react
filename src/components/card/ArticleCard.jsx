@@ -42,16 +42,7 @@ export default function ArticleCard({ article }) {
   const styles = useStyles();
 
   return (
-    <Card
-      className={styles.card}
-      // sx={{
-      //   width: 325,
-      //   height: 345,
-      //   borderRadius: 6,
-      //   backgroundColor: "#f4f4f4",
-      //   boxShadow: "none",
-      // }}
-    >
+    <Card className={styles.card}>
       <Link href="http://google.com" className={styles.link}>
         <div className={styles.container}>
           <div className={styles.imgContainer}>
