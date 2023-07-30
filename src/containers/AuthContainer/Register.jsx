@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Box, Typography } from "@mui/material";
 import AuthSubmitButton from "../../components/button/AuthSubmitButton";
-import { AuthInput } from "../../components/inputs/AuthInput";
+import { BaseInput } from "../../components/inputs/BaseInput";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
@@ -40,31 +40,31 @@ export const Register = () => {
 
   return (
     <>
-      <AuthInput
+      <BaseInput
         title="Full Name"
         name="full_name"
         type="text"
         onChange={handleInputChange}
       />
-      <AuthInput
+      <BaseInput
         title="Username"
         name="username"
         type="text"
         onChange={handleInputChange}
       />
-      <AuthInput
+      <BaseInput
         title="Email address"
         name="email"
         type="email"
         onChange={handleInputChange}
       />
-      <AuthInput
+      <BaseInput
         title="Password"
         name="password"
         type="password"
         onChange={handleInputChange}
       />
-      <AuthInput
+      <BaseInput
         title="Confirm Password"
         name="repeat_password"
         type="password"

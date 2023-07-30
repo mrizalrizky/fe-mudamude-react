@@ -1,26 +1,34 @@
 import React, { useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { Box, Container, Input, Typography } from "@mui/material";
-import UploadEventForm from "../components/forms/UploadEventForm";
-import { styled } from "@mui/system";
-import { VerificationForm } from "../containers/UploadEventContainer/VerificationForm";
-import { VerificationStepTwo } from "../containers/UploadEventContainer/VerificationStepTwo";
-import { VerificationStepOne } from "../containers/UploadEventContainer/VerificationStepOne";
-import { VerificationSuccess } from "../containers/UploadEventContainer/VerificationSuccess";
-import { EventUploaded } from "../containers/UploadEventContainer/EventUploaded";
-
-const StyledInput = styled(Input)({
-  backgroundColor: "white",
-  borderRadius: 5,
-});
+import { Box, Container, Grid, Stack, Typography } from "@mui/material";
+import VerifySuccessBanner from "../assets/images/verify_success.png";
+import DocumentBanner from "../assets/images/document_banner.svg";
+import Breadcrumb from "../components/Breadcrumb";
+import ArrowButton from "../components/button/ArrowButton";
+import ArrowLeft from "../assets/icons/ic_arrow_left.svg";
+import ArrowRight from "../assets/icons/ic_arrow_right.svg";
 
 const steps = [
-  "VERIFICATION_STEP_ONE",
-  "VERIFICATION_STEP_TWO",
-  "VERIFICATION_FORM",
-  "VERIFICATION_SUCCESS",
-  "UPLOAD_EVENT_FORM",
+  {
+    description:
+      "Sebelum dapat mengupload event, kamu harus memverifikasi akun terlebih dahulu demi keamanan user kami.",
+    key: "VERIFICATION_STEP_ONE",
+  },
+  {
+    description:
+      "Informasi kamu akan tetap rahasia dan hanya digunakan untuk verifikasi",
+    key: "VERIFICATION_STEP_TWO",
+  },
+  {
+    description: "",
+    key: "VERIFICATION_FORM",
+  },
+  {
+    description:
+      "Data kamu telah kami terima. Sekarang kamu bisa upload event kamu di MudaMude!",
+    key: "VERIFICATION_SUCCESS",
+  },
 ];
 
 const UploadEventPage = () => {
@@ -38,101 +46,43 @@ const UploadEventPage = () => {
     }
   };
 
-  const verificationPageSteps = () => {
-    const step = steps[pageStep];
-    console.log(step);
-
-    switch (step) {
-      case "VERIFICATION_STEP_ONE":
-        return <VerificationStepOne onNext={handleNext} />;
-
-      case "VERIFICATION_STEP_TWO":
-        return (
-          <VerificationStepTwo
-            onNext={handleNext}
-            onPrevious={handlePrevious}
-          />
-        );
-
-      case "VERIFICATION_FORM":
-        return (
-          <VerificationForm onPrevious={handlePrevious} onNext={handleNext} />
-        );
-
-      case "VERIFICATION_SUCCESS":
-        return <VerificationSuccess onNext={handleNext} />;
-
-      case "UPLOAD_EVENT_FORM":
-        return <UploadEventForm />;
-
-      default:
-    }
-  };
-
   return (
     <>
       <Header bgColor={"#f4f4f4"} />
-      <Box
-        component="div"
-        sx={{
-          padding: "2em 3em",
-          marginBottom: "3em",
-          backgroundColor: "#f4f4f4",
-        }}
-      >
-        <Typography
-          variant="h4"
-          sx={{ display: "inline" }}
-          fontWeight={600}
-          color="#0e185f"
-        >
-          Upload Event
-        </Typography>
-        <Typography variant="h6" color="#0e185f">
-          buat bantu anak muda kembangkan diri!
-        </Typography>
-      </Box>
+      <Breadcrumb
+        pageTitle="Upload Event"
+        pageDescription="buat bantu anak muda kembangkan diri!"
+      />
       <Container
-        fluid
         sx={{
-          display: "flex",
-          justifyContent: "center",
+          paddingY: "2em",
+          backgroundColor: "#f4f4f4",
+          borderRadius: 5,
+          textAlign: "center",
         }}
       >
-        <Box
-          component="div"
-          sx={{
-            width: "50em",
-            backgroundColor: "#f4f4f4",
-            height: "auto",
-            marginX: "5em",
-            paddingY: "2em",
-            paddingX: "2em",
-            borderRadius: 5,
-          }}
-        >
-          <Box
-            component="div"
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              marginBottom: "3em",
-            }}
-          >
-            <Typography variant="h5" fontWeight={600} color="#0e185f">
-              Verify your account
-            </Typography>
+        <Stack sx={{ gap: "3em" }}>
+          <Typography variant="h5" fontWeight={600} color="#0e185f">
+            Verify your account
+          </Typography>
+          <Box>
+            <img
+              src={pageStep !== 3 ? DocumentBanner : VerifySuccessBanner}
+              alt="Verification banner"
+            />
           </Box>
-          <Box
-            component="div"
-            sx={{
-              display: "flex",
-              flexDirection: "row",
-            }}
-          >
-            {verificationPageSteps()}
-          </Box>
-        </Box>
+          <Typography variant="body1" fontWeight={500} color="#0e185f">
+            Sebelum dapat mengupload event, kamu harus memverifikasi akun
+            terlebih dahulu demi keamanan user kami.
+          </Typography>
+          <Grid container sx={{ justifyContent: "space-between" }}>
+            {console.log("pageStep", pageStep !== 0)}
+            {(pageStep === 1 || pageStep !== 2) && (
+              <ArrowButton icon={ArrowLeft} />
+            )}
+            <ArrowButton icon={ArrowRight} />
+          </Grid>
+        </Stack>
       </Container>
       <Footer />
     </>

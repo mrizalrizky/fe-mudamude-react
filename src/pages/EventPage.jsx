@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 import EventCard from "../components/card/EventCard";
 import axios from "axios";
 import { Box, Container, Grid, Typography } from "@mui/material";
-import MenuBarInput from "../components/menubar/MenuBarInput";
+import SearchMenuBar from "../components/menubar/SearchMenuBar";
 import Breadcrumb from "../components/Breadcrumb";
 
 const EventPage = () => {
@@ -34,7 +34,7 @@ const EventPage = () => {
           pageTitle="Mulai cari event & kegiatan"
           pageDescription="buat bantu kembangin diri!"
         />
-        <MenuBarInput />
+        <SearchMenuBar />
         <Container>
           <Typography variant="h5" fontWeight={600} color="#0e185f">
             All Events

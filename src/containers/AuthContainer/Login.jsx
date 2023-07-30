@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Box, Button, Typography } from "@mui/material";
-import { AuthInput } from "../../components/inputs/AuthInput";
+import { BaseInput } from "../../components/inputs/BaseInput";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
@@ -19,6 +19,7 @@ export const Login = () => {
     if (response && response.data) {
       localStorage.setItem("token", response.data.data.access_token);
       localStorage.setItem("username", response.data.data.username);
+      localStorage.setItem("verified_flag", response.data.data.verified_flag);
       // window.location.assign("/");
     }
   };
@@ -34,13 +35,13 @@ export const Login = () => {
 
   return (
     <>
-      <AuthInput
+      <BaseInput
         title="Username"
         name="username"
         type="text"
         onChange={handleInputChange}
       />
-      <AuthInput
+      <BaseInput
         title="Password"
         name="password"
         type="password"

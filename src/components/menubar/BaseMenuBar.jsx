@@ -1,14 +1,19 @@
 import { Button, Grid } from "@mui/material";
 import React, { useState } from "react";
-
+import PostDialog from "../dialog/PostDialog";
 import PlusCircleOutlineIcon from "../../assets/icons/ic_plus_circle_outline.svg";
 import BaseTabButton from "../button/BaseTabButton";
 
-export default function BaseMenuBar({ menuItems, addBtn }) {
-  const [pageComponent, setPageComponent] = useState(menuItems[0].key);
+export default function BaseMenuBar({
+  menuItems,
+  addDialog,
+  currentPageComponent,
+  onPageComponentChange,
+}) {
   const [openDialog, setOpenDialog] = useState(false);
 
   const handleOpenDialog = () => {
+    console.log("OPEN DIALOG", openDialog);
     setOpenDialog(true);
   };
 
@@ -30,13 +35,13 @@ export default function BaseMenuBar({ menuItems, addBtn }) {
           <BaseTabButton
             key={menu.label}
             title={menu.label}
-            isActive={pageComponent === menu.key}
-            onClick={() => setPageComponent(menu.key)}
+            isActive={currentPageComponent === menu.key}
+            onClick={() => onPageComponentChange(menu.key)}
           />
         );
       })}
 
-      {addBtn && (
+      {currentPageComponent === "USER_POSTS" && addDialog && (
         <Button onClick={handleOpenDialog} sx={{ margin: 0, padding: 0 }}>
           <img
             src={PlusCircleOutlineIcon}
@@ -46,6 +51,7 @@ export default function BaseMenuBar({ menuItems, addBtn }) {
           />
         </Button>
       )}
+      {openDialog && <PostDialog />}
     </Grid>
   );
 }

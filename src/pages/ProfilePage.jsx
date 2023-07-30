@@ -14,13 +14,16 @@ const ProfilePage = ({ title, description }) => {
   const currentPath = useLocation().pathname;
   const username = localStorage.getItem("username");
 
-  const [userInfo, setUserInfo] = useState({});
+  const [userData, setUserData] = useState({});
 
   const fetchUser = async () => {
     const response = await axios.get(
       `${process.env.REACT_APP_API_URL}/profile/${username}`
     );
-    setUserInfo(response.data.data);
+
+    if (response && response.data.data) {
+      setUserData(response.data.data);
+    }
   };
 
   useEffect(() => {
@@ -33,7 +36,7 @@ const ProfilePage = ({ title, description }) => {
       <Container>
         <Grid container sx={{ gap: "5em" }}>
           <Grid>
-            <ProfileSidebar data={userInfo} />
+            <ProfileSidebar data={userData} />
           </Grid>
           <Grid sx={{ flexGrow: 1 }}>
             <Stack spacing={4}>
@@ -46,10 +49,16 @@ const ProfilePage = ({ title, description }) => {
                 </Typography>
               </Grid>
               <Grid>
-                {currentPath === "/profile" && <UserProfile data={userInfo} />}
-                {currentPath === "/profile/event" && <UserEvent />}
-                {currentPath === "/profile/membership" && <UserMembership />}
-                {currentPath === "/profile/security" && <UserSecurity />}
+                {currentPath === "/profile" && <UserProfile data={userData} />}
+                {currentPath === "/profile/event" && (
+                  <UserEvent data={userData} />
+                )}
+                {currentPath === "/profile/membership" && (
+                  <UserMembership data={userData} />
+                )}
+                {currentPath === "/profile/security" && (
+                  <UserSecurity data={userData} />
+                )}
               </Grid>
             </Stack>
           </Grid>

@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import moment from "moment";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import LocationIcon from "../assets/icons/ic_location.svg";
+import LocationPinIcon from "../assets/icons/ic_location_pin.svg";
 import CalendarIcon from "../assets/icons/ic_calendar.svg";
 import OrganizerIcon from "../assets/icons/ic_organizer.svg";
 import { styled } from "@mui/system";
@@ -104,7 +104,7 @@ const EventDetailPage = () => {
                   alignItems: "center",
                 }}
               >
-                <img src={LocationIcon} alt="Location Icon" />
+                <img src={LocationPinIcon} alt="Location Icon" />
                 <Typography variant="caption" fontWeight={600} color="#0e185f">
                   {eventDetails.location}
                 </Typography>

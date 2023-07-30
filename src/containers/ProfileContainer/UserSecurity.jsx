@@ -1,6 +1,6 @@
 import React from "react";
-import { Box, Input, Stack, Typography } from "@mui/material";
-import { AuthInput } from "../../components/inputs/AuthInput";
+import { Box, Stack, Typography } from "@mui/material";
+import { BaseInput } from "../../components/inputs/BaseInput";
 
 export const UserSecurity = () => {
   return (
@@ -18,9 +18,13 @@ export const UserSecurity = () => {
         Change Password
       </Typography>
       <Stack sx={{ marginTop: "1em" }}>
-        <AuthInput title="Old Password" />
-        <AuthInput title="New Password" />
-        <AuthInput title="Confirm New Password" />
+        <BaseInput label="Old Password" name="old_password" type="password" />
+        <BaseInput label="New Password" name="new_password" type="password" />
+        <BaseInput
+          label="Confirm New Password"
+          name="confirm_new_password"
+          type="password"
+        />
       </Stack>
     </Box>
   );

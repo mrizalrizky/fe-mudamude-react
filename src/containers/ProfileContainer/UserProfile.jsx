@@ -1,13 +1,14 @@
-import { Box, TextField, Typography } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import React from "react";
 import UserAvatar from "../../components/UserAvatar";
+import { BaseInput } from "../../components/inputs/BaseInput";
 
 export const UserProfile = ({ data }) => {
   return (
     <Box
       component="div"
       sx={{
-        width: 400,
+        width: 650,
         height: "auto",
         padding: "0.5em 2.5em 2.5em 2.5em",
         borderRadius: 5,
@@ -23,79 +24,56 @@ export const UserProfile = ({ data }) => {
           Personal Information
         </Typography>
       </Box>
-      <Box component="div" sx={{ marginBottom: "1em" }}>
-        <Typography variant="body1" color="#0e185f" fontWeight={500}>
-          Full Name
-        </Typography>
-        <TextField
-          placeholder={data.fullName}
-          disableUnderline
-          sx={{
-            backgroundColor: "white",
-            alignItems: "center",
-            borderRadius: 2,
-            marginTop: "0.5em",
-          }}
-        />
-      </Box>
-      <Box component="div" sx={{ marginBottom: "0.5em" }}>
-        <Typography variant="body1" color="#0e185f" fontWeight={500}>
-          Username
-        </Typography>
-        <TextField
-          placeholder={data.username}
-          disableUnderline
-          sx={{
-            backgroundColor: "white",
-            alignItems: "center",
-            borderRadius: 2,
-            marginTop: "0.5em",
-          }}
-        />
-      </Box>
-      <Box component="div" sx={{ marginBottom: "0.5em" }}>
-        <Typography variant="body1" color="#0e185f" fontWeight={500}>
-          Email Address
-        </Typography>
-        <TextField
-          disableUnderline
-          placeholder={data.email}
-          sx={{
-            backgroundColor: "white",
-            alignItems: "center",
-            borderRadius: 2,
-            marginTop: "0.5em",
-          }}
-        />
-      </Box>
-      <Box component="div" sx={{ marginBottom: "0.5em" }}>
-        <Typography variant="body1" color="#0e185f" fontWeight={500}>
-          Password
-        </Typography>
-        <TextField
-          disableUnderline
-          sx={{
-            backgroundColor: "white",
-            alignItems: "center",
-            borderRadius: 2,
-            marginTop: "0.5em",
-          }}
-        />
-      </Box>
-      <Box component="div" sx={{ marginBottom: "0.5em" }}>
-        <Typography variant="body1" color="#0e185f" fontWeight={500}>
-          Confirm Password
-        </Typography>
-        <TextField
-          disableUnderline
-          sx={{
-            backgroundColor: "white",
-            alignItems: "center",
-            borderRadius: 2,
-            marginTop: "0.5em",
-          }}
-        />
-      </Box>
+      <Grid container sx={{ rowGap: "1em", justifyContent: "space-between" }}>
+        <Grid item>
+          <BaseInput
+            label="Full Name"
+            name="full_name"
+            type="text"
+            placeholder={data.fullName ?? ""}
+          />
+        </Grid>
+        <Grid item>
+          <BaseInput
+            label="Username"
+            name="username"
+            type="text"
+            placeholder={data.username ?? ""}
+          />
+        </Grid>
+        <Grid item>
+          <BaseInput
+            label="Email"
+            name="email"
+            type="email"
+            placeholder={data.email ?? ""}
+          />
+        </Grid>
+        <Grid item>
+          <BaseInput
+            label="Phone"
+            name="phone"
+            type="text"
+            placeholder={data.phone ?? ""}
+          />
+        </Grid>
+        <Grid item>
+          <BaseInput
+            label="Institution"
+            name="institution"
+            type="text"
+            placeholder={data.institution ?? ""}
+          />
+        </Grid>
+        <Grid item>
+          <BaseInput
+            label="Major"
+            name="major"
+            type="text"
+            placeholder={data.major ?? ""}
+          />
+        </Grid>
+      </Grid>
     </Box>
   );
 };

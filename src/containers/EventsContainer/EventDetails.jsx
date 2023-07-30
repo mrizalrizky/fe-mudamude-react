@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, List, ListItem, Typography } from "@mui/material";
-import LocationIcon from "../../assets/icons/ic_location.svg";
+import LocationPinIcon from "../../assets/icons/ic_location_pin.svg";
 import CalendarIcon from "../../assets/icons/ic_calendar.svg";
 import OrganizerIcon from "../../assets/icons/ic_organizer.svg";
 import CrossedCalendarIcon from "../../assets/icons/ic_calendar_cross.svg";
@@ -32,7 +32,7 @@ export default function EventDetails({
             alignItems: "center",
           }}
         >
-          <img src={LocationIcon} alt="Location Icon" />
+          <img src={LocationPinIcon} alt="Location Icon" />
           <Typography variant="caption" fontWeight={600} color="#0e185f">
             Location: Online
           </Typography>

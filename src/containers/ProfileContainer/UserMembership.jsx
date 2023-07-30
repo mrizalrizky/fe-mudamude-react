@@ -2,10 +2,28 @@ import React, { useEffect, useState } from "react";
 import { Box, Grid, Stack, TextField, Typography } from "@mui/material";
 import MembershipBenefitCard from "../../components/card/MembershipBenefitCard";
 import MembershipIcon from "../../assets/icons/ic_membership.svg";
+import axios from "axios";
 
-export const UserMembership = () => {
+export const UserMembership = ({ data }) => {
+  const [roleList, setRoleList] = useState([]);
+
+  const getRolesList = async () => {
+    const response = await axios.get(
+      `${process.env.REACT_APP_API_URL}/roles/exclude?username=${data?.username}`
+    );
+
+    console.log("RESP", response);
+
+    if (response && response.data.data) {
+      setRoleList(response.data.data);
+    }
+  };
+  useEffect(() => {
+    getRolesList();
+  }, []);
   return (
     <Stack gap="3em">
+      {console.log(data)}
       <Box
         component="div"
         sx={{
@@ -37,7 +55,8 @@ export const UserMembership = () => {
           <Grid item>
             <Stack>
               <Typography color="#0e185f" fontWeight={700} fontSize="20px">
-                Express
+                {/* {console.log(data)} */}
+                {/* {data.master_role.name ?? "-"} */}
               </Typography>
               <Typography color="#0e185f" fontWeight={400} fontSize="16px">
                 Berakhir pada selamanya
@@ -61,12 +80,21 @@ export const UserMembership = () => {
           Mau Upgrade?
         </Typography>
         <Grid container sx={{ gap: "2em", marginTop: "1em" }}>
-          <Grid item>
-            <MembershipBenefitCard name="Lite" price="10000" bgColor="white" />
-          </Grid>
-          <Grid item>
-            <MembershipBenefitCard name="Lite" price="10000" bgColor="white" />
-          </Grid>
+          {roleList && roleList.length > 0 ? (
+            roleList.map((role) => {
+              return (
+                <Grid item>
+                  <MembershipBenefitCard
+                    name={role.name}
+                    price={role.price}
+                    bgColor="white"
+                  />
+                </Grid>
+              );
+            })
+          ) : (
+            <></>
+          )}
         </Grid>
       </Box>
     </Stack>

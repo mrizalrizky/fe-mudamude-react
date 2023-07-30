@@ -33,10 +33,13 @@ export const UserEvent = () => {
 
   const getUserRegisteredEventList = async () => {
     try {
-      const res = await axios.get(
+      const response = await axios.get(
         `${process.env.REACT_APP_API_URL}/profile/registered-events?username=putriaap`
       );
-      setEventList(res.data.data);
+
+      if (response && response.data.data) {
+        setEventList(response.data.data);
+      }
     } catch (error) {
       console.log("error:> ", error);
     }
@@ -66,7 +69,11 @@ export const UserEvent = () => {
           justifyContent: "center",
         }}
       >
-        <BaseMenuBar menuItems={menuItems} />
+        <BaseMenuBar
+          menuItems={menuItems}
+          currentPageComponent={pageComponent}
+          onPageComponentChange={setPageComponent}
+        />
       </Grid>
       <Box
         component="div"

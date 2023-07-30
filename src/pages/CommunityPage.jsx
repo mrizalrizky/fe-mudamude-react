@@ -1,27 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import axios from "axios";
-import {
-  Box,
-  Button,
-  Dialog,
-  FormControl,
-  Grid,
-  Input,
-  Typography,
-} from "@mui/material";
-import PlusCircleOutlineIcon from "../assets/icons/ic_plus_circle_outline.svg";
-import UserAvatar from "../components/UserAvatar";
-import BaseTabButton from "../components/button/BaseTabButton";
+import { Box, Grid } from "@mui/material";
 import Breadcrumb from "../components/Breadcrumb";
 import BelajarBareng from "../containers/CommunityContainer/BelajarBareng";
 import TipsArticle from "../containers/CommunityContainer/TipsArticle";
 import BaseMenuBar from "../components/menubar/BaseMenuBar";
 
 const CommunityPage = () => {
-  // const [postContent, setPostContent] = useState("");
-  // const [postUrl, setPostUrl] = useState("");
   const menuItems = [
     {
       label: "Belajar Bareng",
@@ -88,7 +75,12 @@ const CommunityPage = () => {
           pageDescription="Yuk kolaborasi bareng teman-teman lain di sini!"
         />
         <Grid container sx={{ display: "flex", justifyContent: "center" }}>
-          <BaseMenuBar menuItems={menuItems} addBtn />
+          <BaseMenuBar
+            menuItems={menuItems}
+            currentPageComponent={pageComponent}
+            onPageComponentChange={setPageComponent} // ngirim setstate ke BaseMenuBar agar BaseMenuBar bisa  ngeset pageComponent
+            addDialog
+          />
         </Grid>
         {pageComponent === "USER_POSTS" && <BelajarBareng />}
         {pageComponent === "TIPS_ARTICLES" && <TipsArticle />}

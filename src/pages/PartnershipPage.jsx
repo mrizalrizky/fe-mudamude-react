@@ -23,38 +23,33 @@ const PartnershipPage = () => {
     <>
       <Header />
       <Container>
-        <Stack gap="2rem">
+        <Stack gap="3rem">
           <Grid
             container
             sx={{
-              height: "250px",
-              padding: "2em",
+              height: "auto",
+              padding: "3em",
               alignItems: "center",
               justifyContent: "space-between",
               borderRadius: 5,
               backgroundColor: "#0e185f",
             }}
           >
-            <Grid>
-              <Typography fontSize="24px" fontWeight={600} color="#ffffff">
+            <Grid item>
+              <Typography fontSize="32px" fontWeight={600} color="#ffffff">
                 Yuk kolaborasi bareng MudaMude!
               </Typography>
-              <Typography fontSize="16px" fontWeight={400} color="#ffffff">
+              <Typography fontSize="20px" fontWeight={400} color="#ffffff">
                 mudamude@company.com
               </Typography>
             </Grid>
-            {/* <Grid sx={{ backgroundColor: "red" }}>
-              <img src={banner1} alt="banner 1" />
-            </Grid> */}
+            <Grid item>
+              <img height={250} src={banner1} alt="Banner 1" />
+            </Grid>
           </Grid>
 
-          <Grid>
-            <Typography
-              sx={{ marginBottom: "2em" }}
-              variant="h5"
-              fontWeight={600}
-              color="#0e185f"
-            >
+          <Stack gap="2em">
+            <Typography fontSize="28px" fontWeight={600} color="#0e185f">
               Kolaborasi yang Sedang Berlangsung
             </Typography>
             <Grid container gap="5em" sx={{ justifyContent: "center" }}>
@@ -62,37 +57,47 @@ const PartnershipPage = () => {
               <EventCard />
               <EventCard />
             </Grid>
-          </Grid>
+          </Stack>
 
           <Grid
             container
             sx={{
-              height: "250px",
-              padding: "2em",
+              height: "auto",
+              padding: "3em",
               alignItems: "center",
               justifyContent: "space-between",
               borderRadius: 5,
               backgroundColor: "#2FA4FF",
             }}
           >
-            <Grid item sx={{ flex: 1, alignItems: "center" }}>
-              <Typography fontSize="24px" fontWeight={600} color="#ffffff">
-                Upload event kamu di MudaMude dengan Jangkau Ratusan Anak Muda
-                hingga Mahasiswa Indonesia!
-              </Typography>
+            <Grid item sx={{ flexBasis: "50%", textAlign: "center" }}>
+              <Stack>
+                <Box
+                  sx={{
+                    width: "fit-content",
+                    borderRadius: 2,
+                    alignSelf: "center",
+                    paddingX: "2em",
+                    backgroundColor: "#0e185f",
+                  }}
+                >
+                  <Typography fontSize="32px" fontWeight={600} color="#ffffff">
+                    GRATIS!
+                  </Typography>
+                </Box>
+                <Typography fontSize="32px" fontWeight={600} color="#ffffff">
+                  Upload event kamu di MudaMude dengan jangkauan ratusan anak
+                  muda hingga mahasiswa Indonesia!
+                </Typography>
+              </Stack>
             </Grid>
-            {/* <Grid sx={{ flex: "0 0 auto", backgroundColor: "red" }}>
-              <img src={banner2} alt="banner 2" />
-            </Grid> */}
+            <Grid item>
+              <img height={250} src={banner2} alt="Banner 2" />
+            </Grid>
           </Grid>
 
-          <Grid sx={{ textAlign: "center" }}>
-            <Typography
-              sx={{ marginBottom: "2em" }}
-              variant="h5"
-              fontWeight={600}
-              color="#0e185f"
-            >
+          <Stack gap="2em" sx={{ textAlign: "center" }}>
+            <Typography fontSize="28px" fontWeight={600} color="#0e185f">
               Waktunya Jadi Member!
             </Typography>
             <Grid
@@ -112,7 +117,7 @@ const PartnershipPage = () => {
                 );
               })}
             </Grid>
-          </Grid>
+          </Stack>
         </Stack>
       </Container>
       <Footer />
