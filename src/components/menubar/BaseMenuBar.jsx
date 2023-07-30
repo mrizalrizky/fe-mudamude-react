@@ -11,6 +11,7 @@ export default function BaseMenuBar({
   onPageComponentChange,
 }) {
   const [openDialog, setOpenDialog] = useState(false);
+  const isLoggedIn = localStorage.getItem("token");
 
   const handleOpenDialog = () => {
     console.log("OPEN DIALOG", openDialog);
@@ -41,7 +42,7 @@ export default function BaseMenuBar({
         );
       })}
 
-      {currentPageComponent === "USER_POSTS" && addDialog && (
+      {isLoggedIn && currentPageComponent === "USER_POSTS" && addDialog && (
         <Button onClick={handleOpenDialog} sx={{ margin: 0, padding: 0 }}>
           <img
             src={PlusCircleOutlineIcon}

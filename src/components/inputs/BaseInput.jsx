@@ -20,38 +20,33 @@ export const BaseInput = ({
           </Typography>
         </InputLabel>
       )}
-      <Box
+      <TextField
+        variant="standard"
+        fullWidth
+        name={name}
+        type={type}
+        placeholder={placeholder}
+        onChange={onChange}
         sx={{
+          backgroundColor: "white",
+          borderRadius: 2,
           width: width ? width : "auto",
           padding: "0.25em 0.5em",
-          borderRadius: 2,
-          backgroundColor: "white",
         }}
-      >
-        <TextField
-          variant="standard"
-          name={name}
-          type={type}
-          placeholder={placeholder}
-          onChange={onChange}
-          sx={{
-            backgroundColor: "white",
-            borderRadius: 2,
-          }}
-          InputProps={{
-            disableUnderline: true,
-            endAdornment: icon && (
-              <img
-                src={icon}
-                width={16}
-                height={16}
-                style={{ marginLeft: "0.5em" }}
-                alt={iconAlt}
-              />
-            ),
-          }}
-        />
-      </Box>
+        InputProps={{
+          disableUnderline: true,
+          endAdornment: icon && (
+            <img
+              src={icon}
+              width={16}
+              height={16}
+              style={{ marginLeft: "0.5em" }}
+              alt={iconAlt}
+            />
+          ),
+        }}
+      />
+      {/* </Box> */}
     </>
   );
 };

@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "../components/Header";
-import { Box, Container, Typography } from "@mui/material";
+import { Box, Container, Grid, Stack, Typography } from "@mui/material";
 import AuthBanner from "../assets/images/auth_banner2.png";
 import Footer from "../components/Footer";
 import { Login } from "../containers/AuthContainer/Login";
@@ -13,29 +13,46 @@ const AuthPage = ({ title, description }) => {
   return (
     <>
       <Header />
-      <Container fixed>
-        <Box
+      <Container>
+        <Stack gap="1em">
+          <Stack gap="0.25em">
+            <Typography variant="h5" fontWeight={600} color="#0e185f">
+              {title}
+            </Typography>
+            <Typography variant="body1" color="#0e185f">
+              {description}
+            </Typography>
+          </Stack>
+          <Grid container sx={{ justifyContent: "space-between" }}>
+            <Grid
+              item
+              sx={{
+                width: 375,
+                height: "fit-content",
+                padding: "2.5em",
+                backgroundColor: "#f4f4f4",
+                borderRadius: 5,
+              }}
+            >
+              {currentPath === "/register" && <Register />}
+              {currentPath === "/login" && <Login />}
+              {currentPath === "/forgot-password" && <ForgotPassword />}
+            </Grid>
+            <Grid item>
+              <img height={450} src={AuthBanner} alt="Auth Banner" />
+            </Grid>
+          </Grid>
+        </Stack>
+        {/* <Box
           component="div"
           sx={{
             display: "flex",
             alignItems: "flex-start",
             justifyContent: "center",
-            // marginTop: "6.5em",
           }}
         >
           <Box component="div" sx={{ width: 375, marginRight: "2em" }}>
             <Box component="div" sx={{ marginBottom: "3em" }}>
-              <Typography
-                variant="h5"
-                sx={{ display: "inline" }}
-                fontWeight={600}
-                color="#0e185f"
-              >
-                {title}
-              </Typography>
-              <Typography variant="body1" color="#0e185f">
-                {description}
-              </Typography>
             </Box>
             <Box
               component="div"
@@ -47,9 +64,6 @@ const AuthPage = ({ title, description }) => {
                 borderRadius: 5,
               }}
             >
-              {currentPath === "/register" && <Register />}
-              {currentPath === "/login" && <Login />}
-              {currentPath === "/forgot-password" && <ForgotPassword />}
             </Box>
           </Box>
           <Box
@@ -62,9 +76,8 @@ const AuthPage = ({ title, description }) => {
               justifyContent: "center",
             }}
           >
-            <img height={450} src={AuthBanner} alt="Auth Banner" />
           </Box>
-        </Box>
+        </Box> */}
       </Container>
       <Footer />
     </>

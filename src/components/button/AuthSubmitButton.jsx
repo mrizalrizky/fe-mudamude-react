@@ -1,24 +1,25 @@
 import React from "react";
-import { Box, Button, Typography } from "@mui/material";
-import { styled } from "@mui/system";
+import { Button } from "@mui/material";
 
-const StyledButton = styled(Button)({
-  width: 250,
-  height: 45,
-  borderRadius: 20,
-  backgroundColor: "#0e185f",
-  color: "white",
-  textTransform: "none",
-  "&:hover": {
-    backgroundColor: "#0e185f",
-    color: "white",
-  },
-});
-
-export default function AuthSubmitButton({ onClick }) {
+export default function AuthSubmitButton({ bgColor, children, onClick }) {
   return (
-    <StyledButton onClick={onClick} variant="contained">
-      Register
-    </StyledButton>
+    <Button
+      sx={{
+        width: 250,
+        height: 45,
+        borderRadius: 20,
+        backgroundColor: bgColor ? bgColor : "#0e185f",
+        color: bgColor ? "#0e185f" : "white",
+        textTransform: "none",
+        "&:hover": {
+          backgroundColor: bgColor ? bgColor : "#0e185f",
+          color: bgColor ? "#0e185f" : "white",
+        },
+      }}
+      onClick={onClick}
+      variant="contained"
+    >
+      {children}
+    </Button>
   );
 }

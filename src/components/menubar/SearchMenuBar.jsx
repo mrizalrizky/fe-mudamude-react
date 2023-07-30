@@ -9,6 +9,7 @@ import { BaseInput } from "../inputs/BaseInput";
 
 export default function SearchMenuBar() {
   const [searchData, setSearchData] = useState({});
+  const isLoggedIn = localStorage.getItem("token");
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -67,19 +68,21 @@ export default function SearchMenuBar() {
         onChange={handleInputChange}
       />
 
-      <Button
-        sx={{
-          padding: 0,
-        }}
-        href="/upload-event"
-      >
-        <img
-          src={PlusCircleOutlineIcon}
-          width={35}
-          height={35}
-          alt="Add Post"
-        />
-      </Button>
+      {isLoggedIn && (
+        <Button
+          sx={{
+            padding: 0,
+          }}
+          href="/upload-event"
+        >
+          <img
+            src={PlusCircleOutlineIcon}
+            width={35}
+            height={35}
+            alt="Add Post"
+          />
+        </Button>
+      )}
     </Grid>
   );
 }

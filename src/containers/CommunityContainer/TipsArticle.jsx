@@ -15,7 +15,7 @@ export default function TipsArticle() {
 
   useEffect(() => {
     getArticleList();
-  });
+  }, []);
   return (
     <>
       <Box

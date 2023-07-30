@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 import AuthSubmitButton from "../../components/button/AuthSubmitButton";
 import { BaseInput } from "../../components/inputs/BaseInput";
 import { Link } from "react-router-dom";
@@ -39,33 +39,33 @@ export const Register = () => {
   };
 
   return (
-    <>
+    <Stack>
       <BaseInput
-        title="Full Name"
+        label="Full Name"
         name="full_name"
         type="text"
         onChange={handleInputChange}
       />
       <BaseInput
-        title="Username"
+        label="Username"
         name="username"
         type="text"
         onChange={handleInputChange}
       />
       <BaseInput
-        title="Email address"
+        label="Email address"
         name="email"
         type="email"
         onChange={handleInputChange}
       />
       <BaseInput
-        title="Password"
+        label="Password"
         name="password"
         type="password"
         onChange={handleInputChange}
       />
       <BaseInput
-        title="Confirm Password"
+        label="Confirm Password"
         name="repeat_password"
         type="password"
         onChange={handleInputChange}
@@ -73,9 +73,8 @@ export const Register = () => {
       <Box
         component="div"
         sx={{
-          display: "flex",
-          justifyContent: "flex-start",
-          marginBottom: "1em",
+          alignSelf: "end",
+          marginBottom: "1.5em",
         }}
       >
         <Link to="/login" style={{ textDecoration: "none" }}>
@@ -84,15 +83,9 @@ export const Register = () => {
           </Typography>
         </Link>
       </Box>
-      <Box
-        component="div"
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-        }}
-      >
+      <Box sx={{ alignSelf: "center" }}>
         <AuthSubmitButton onClick={submitHandler}>Register</AuthSubmitButton>
       </Box>
-    </>
+    </Stack>
   );
 };
