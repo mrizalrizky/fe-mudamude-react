@@ -1,5 +1,10 @@
 import React from "react";
-import { Box, InputLabel, TextField, Typography } from "@mui/material";
+import {
+  InputAdornment,
+  InputLabel,
+  TextField,
+  Typography,
+} from "@mui/material";
 
 export const BaseInput = ({
   label,
@@ -36,17 +41,18 @@ export const BaseInput = ({
         InputProps={{
           disableUnderline: true,
           endAdornment: icon && (
-            <img
-              src={icon}
-              width={16}
-              height={16}
-              style={{ marginLeft: "0.5em" }}
-              alt={iconAlt}
-            />
+            <InputAdornment disablePointerEvents>
+              <img
+                src={icon}
+                width={16}
+                height={16}
+                style={{ marginLeft: "0.5em" }}
+                alt={iconAlt}
+              />
+            </InputAdornment>
           ),
         }}
       />
-      {/* </Box> */}
     </>
   );
 };

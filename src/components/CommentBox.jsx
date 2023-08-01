@@ -1,46 +1,38 @@
 import React from "react";
 import moment from "moment";
 import { Box, Typography } from "@mui/material";
-import CommentIcon from "../assets/icons/ic_comments.svg";
+import BubbleChatIcon from "../assets/icons/ic_comments.svg";
 
-export default function CommentBox({ data }) {
+export default function CommentBox({ dataComment }) {
   return (
     <Box
-      component="div"
       sx={{
-        height: "auto",
-        paddingLeft: "1em",
-        marginBottom: "0.5em",
-        gap: "1em",
-        borderRadius: 3,
-        display: "flex",
-        alignItems: "center",
         backgroundColor: "white",
+        borderRadius: 3,
+        padding: "0.5em 1em",
+        display: "flex",
+        gap: "1em",
+        alignItems: "center",
       }}
     >
-      <Box component="div">
-        <img src={CommentIcon} width={30} height={30} alt="Comment" />
+      <Box>
+        <img
+          src={BubbleChatIcon}
+          width={30}
+          height={30}
+          alt="Bubble Chat Icon"
+        />
       </Box>
-      <Box
-        component="div"
-        sx={{
-          display: "inline",
-          marginBottom: "0.25em",
-        }}
-      >
-        <Box component="div">
-          <Typography variant="caption">
-            {moment(data.createdAt).format("DD MMMM YYYY hh.mm A")} by
-          </Typography>
-          <Typography variant="caption" fontWeight={500} marginLeft={"0.25em"}>
-            {data.fullName}
-          </Typography>
-        </Box>
-        <Box component="div">
-          <Typography variant="body1" color="#0e185f">
-            {data.comment}
-          </Typography>
-        </Box>
+      <Box>
+        <Typography variant="caption">
+          {moment(dataComment.createdAt).format("DD MMMM YYYY hh.mm A")} by
+        </Typography>
+        <Typography variant="caption" fontWeight={500} marginLeft={"0.25em"}>
+          {dataComment.fullName}
+        </Typography>
+        <Typography variant="body1" color="#0e185f">
+          {dataComment.comment}
+        </Typography>
       </Box>
     </Box>
   );
