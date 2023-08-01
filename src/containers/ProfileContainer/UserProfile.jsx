@@ -10,7 +10,7 @@ export const UserProfile = ({ data }) => {
       sx={{
         width: 650,
         height: "auto",
-        padding: "0.5em 2.5em 2.5em 2.5em",
+        padding: "2.5em",
         borderRadius: 5,
         backgroundColor: "#f4f4f4",
       }}

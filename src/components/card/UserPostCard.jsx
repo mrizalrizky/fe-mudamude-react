@@ -9,9 +9,9 @@ export default function UserPostCard({ data }) {
       sx={{
         width: 345,
         height: "auto",
-        borderRadius: 6,
+        borderRadius: 5,
         backgroundColor: "#f4f4f4",
-        padding: "0.25em 2em 1.5em 2em",
+        padding: "1.5em 2em",
       }}
     >
       <Box component="div">

@@ -8,22 +8,16 @@ export default function UserAvatar(props) {
       sx={{
         display: "flex",
         flexDirection: "row",
-        marginTop: "2em",
+        gap: '1em'
       }}
     >
       <Avatar sx={{ width: 60, height: 60 }} />
-      <Box
-        component="div"
-        sx={{
-          width: "100%",
-          paddingLeft: "1em ",
-        }}
-      >
+      <Box>
         <Typography variant="h6" fontWeight={600} color={"#0e185f"}>
-          {props.fullName}
+          {props.fullName ?? '-'}
         </Typography>
         <Typography variant="subtitle1" color={"#0e185f"}>
-          {props.institution}
+          {props.institution ?? '-'}
         </Typography>
       </Box>
     </Box>
