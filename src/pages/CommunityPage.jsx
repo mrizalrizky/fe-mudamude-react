@@ -1,61 +1,25 @@
 import React, { useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import axios from "axios";
 import { Box, Grid } from "@mui/material";
 import Breadcrumb from "../components/Breadcrumb";
 import BelajarBareng from "../containers/CommunityContainer/BelajarBareng";
 import TipsArticle from "../containers/CommunityContainer/TipsArticle";
 import BaseMenuBar from "../components/menubar/BaseMenuBar";
 
+const menuItems = [
+  {
+    label: "Belajar Bareng",
+    key: "USER_POSTS",
+  },
+  {
+    label: "Tips dan Artikel",
+    key: "TIPS_ARTICLES",
+  },
+];
+
 const CommunityPage = () => {
-  const menuItems = [
-    {
-      label: "Belajar Bareng",
-      key: "USER_POSTS",
-    },
-    {
-      label: "Tips dan Artikel",
-      key: "TIPS_ARTICLES",
-    },
-  ];
   const [pageComponent, setPageComponent] = useState("USER_POSTS");
-  const [open, setDialogOpen] = useState(false);
-  const [postData, setPostData] = useState({
-    id_user: null,
-    content: null,
-    url: null,
-  });
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-
-    setPostData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
-
-  const username = localStorage.getItem("username");
-
-  const handleSubmitPost = async () => {
-    const response = await axios.post(
-      `${process.env.REACT_APP_API_URL}/posts`,
-      { ...postData, id_user: 1 }
-    );
-
-    if (response && response.data.data) {
-      setDialogOpen(false);
-    }
-  };
-
-  const handleDialogOpen = () => {
-    setDialogOpen(true);
-  };
-
-  const handleDialogClose = () => {
-    setDialogOpen(false);
-  };
 
   return (
     <>

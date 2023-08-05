@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Button, Stack, Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 import { BaseInput } from "../../components/inputs/BaseInput";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -18,6 +18,8 @@ export const Login = () => {
     );
 
     if (response && response.data) {
+      localStorage.setItem("userId", response.data.data.id_user);
+      localStorage.setItem("institution", response.data.data.institution);
       localStorage.setItem("token", response.data.data.access_token);
       localStorage.setItem("username", response.data.data.username);
       localStorage.setItem("verified_flag", response.data.data.verified_flag);

@@ -20,11 +20,10 @@ const EventPage = () => {
   return (
     <>
       <Box
-        component="div"
         sx={{
-          height: "20em",
+          height: "20.5em",
           backgroundColor: "#f4f4f4",
-          borderRadius: "0 0 30px 30px",
+          borderRadius: "0 0 2em 2em",
           display: "flex",
           flexDirection: "column",
         }}
@@ -35,7 +34,7 @@ const EventPage = () => {
           pageDescription="buat bantu kembangin diri!"
         />
         <SearchMenuBar />
-        <Container>
+        <Container sx={{ marginTop: "2em" }}>
           <Typography variant="h5" fontWeight={600} color="#0e185f">
             All Events
           </Typography>

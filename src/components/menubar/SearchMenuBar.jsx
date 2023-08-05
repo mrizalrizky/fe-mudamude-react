@@ -25,63 +25,72 @@ export default function SearchMenuBar() {
       container
       sx={{
         width: "fit-content",
-        padding: "1.25em 1.75em",
+        padding: "1.25em",
         borderRadius: 5,
         backgroundColor: "#0e185f",
         gap: "1.5em",
         alignSelf: "center",
       }}
     >
-      <BaseInput
-        type="text"
-        name="event_name"
-        placeholder="Cari event"
-        icon={SearchIcon}
-        iconAlt="Search icon"
-        onChange={handleInputChange}
-      />
-      <BaseInput
-        width={100}
-        type="text"
-        name="date"
-        placeholder="Date"
-        icon={CalendarIcon}
-        iconAlt="Calendar icon"
-        onChange={handleInputChange}
-      />
-      <BaseInput
-        width={175}
-        type="text"
-        name="location"
-        placeholder="Location"
-        icon={LocationPinIcon}
-        iconAlt="Location pin icon"
-        onChange={handleInputChange}
-      />
-      <BaseInput
-        width={150}
-        type="text"
-        name="category"
-        placeholder="Category"
-        icon={SquareDotIcon}
-        iconAlt="Square dot icon"
-        onChange={handleInputChange}
-      />
-
+      <Grid item>
+        <BaseInput
+          type="text"
+          name="event_name"
+          placeholder="Cari event"
+          icon={SearchIcon}
+          iconAlt="Search icon"
+          onChange={handleInputChange}
+        />
+      </Grid>
+      <Grid item>
+        <BaseInput
+          width={100}
+          type="text"
+          name="date"
+          placeholder="Date"
+          icon={CalendarIcon}
+          iconAlt="Calendar icon"
+          onChange={handleInputChange}
+        />
+      </Grid>
+      <Grid item>
+        <BaseInput
+          width={175}
+          type="text"
+          name="location"
+          placeholder="Location"
+          icon={LocationPinIcon}
+          iconAlt="Location pin icon"
+          onChange={handleInputChange}
+        />
+      </Grid>
+      <Grid item>
+        <BaseInput
+          width={150}
+          type="text"
+          name="category"
+          placeholder="Category"
+          icon={SquareDotIcon}
+          iconAlt="Square dot icon"
+          onChange={handleInputChange}
+        />
+      </Grid>
       {isLoggedIn && (
-        <Button
-          sx={{
-            padding: 0,
-          }}
-          href="/upload-event"
-        >
-          <img
-            src={PlusCircleOutlineIcon}
-            width={35}
-            height={35}
-            alt="Add Post"
-          />
-        </Button>
+        <Grid item>
+          <Button
+            sx={{
+              padding: 0,
+            }}
+            href="/upload-event"
+          >
+            <img
+              src={PlusCircleOutlineIcon}
+              width={35}
+              height={35}
+              alt="Add Post"
+            />
+          </Button>
+        </Grid>
       )}
     </Grid>
   );

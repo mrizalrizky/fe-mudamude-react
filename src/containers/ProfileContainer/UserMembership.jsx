@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Box, Grid, Stack, TextField, Typography } from "@mui/material";
+import { Box, Grid, Stack, Typography } from "@mui/material";
 import MembershipBenefitCard from "../../components/card/MembershipBenefitCard";
 import MembershipIcon from "../../assets/icons/ic_membership.svg";
 import axios from "axios";
@@ -23,9 +23,7 @@ export const UserMembership = ({ data }) => {
   }, []);
   return (
     <Stack gap="3em">
-      {console.log(data)}
       <Box
-        component="div"
         sx={{
           height: "auto",
           marginRight: "5em",
@@ -41,7 +39,7 @@ export const UserMembership = ({ data }) => {
           container
           sx={{
             alignItems: "center",
-            padding: "0.5em 2em 0.5em 1em",
+            padding: "0.5em 1em",
             marginTop: "1em",
             gap: "1em",
             borderRadius: 2,
@@ -55,8 +53,7 @@ export const UserMembership = ({ data }) => {
           <Grid item>
             <Stack>
               <Typography color="#0e185f" fontWeight={700} fontSize="20px">
-                {/* {console.log(data)} */}
-                {/* {data.master_role.name ?? "-"} */}
+                {data.master_role.name ?? "-"}
               </Typography>
               <Typography color="#0e185f" fontWeight={400} fontSize="16px">
                 Berakhir pada selamanya
@@ -67,7 +64,6 @@ export const UserMembership = ({ data }) => {
       </Box>
 
       <Box
-        component="div"
         sx={{
           height: "auto",
           marginRight: "5em",
@@ -79,22 +75,23 @@ export const UserMembership = ({ data }) => {
         <Typography variant="h5" color="#0e185f" fontWeight={600}>
           Mau Upgrade?
         </Typography>
-        <Grid container sx={{ gap: "2em", marginTop: "1em" }}>
-          {roleList && roleList.length > 0 ? (
+        <Grid
+          container
+          sx={{ justifyContent: "space-between", marginTop: "1em" }}
+        >
+          {roleList &&
+            roleList.length > 0 &&
             roleList.map((role) => {
               return (
-                <Grid item>
+                <Grid item sx={{ marginBottom: "2.5em" }}>
                   <MembershipBenefitCard
-                    name={role.name}
-                    price={role.price}
+                    name={role.name ?? "-"}
+                    price={role.price ?? "-"}
                     bgColor="white"
                   />
                 </Grid>
               );
-            })
-          ) : (
-            <></>
-          )}
+            })}
         </Grid>
       </Box>
     </Stack>

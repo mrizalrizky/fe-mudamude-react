@@ -6,7 +6,6 @@ import {
   Box,
   Container,
   Typography,
-  Input,
   Button,
   Grid,
   Stack,
@@ -70,9 +69,7 @@ const PostDetailPage = () => {
 
           <Stack
             sx={{
-              marginX: "4.5em",
-              // marginX: "2em",
-              marginY: "1em",
+              margin: "1em 4.5em",
               textAlign: "justify",
               alignSelf: "center",
               gap: "1em",
@@ -135,42 +132,8 @@ const PostDetailPage = () => {
               </Grid>
             </Grid>
           </Stack>
-          {/* <Grid
-            sx={{
-              marginX: "4.5em",
-              marginY: "1em",
-              textAlign: "justify",
-              alignSelf: "center",
-            }}
-          >
-            <Typography variant="body1" color={"#0e185f"}>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maxime
-              itaque reprehenderit eaque inventore odit, neque cupiditate soluta
-              qui totam similique consequuntur beatae repellat sed, enim rem
-              magni repellendus amet. Tempore!
-            </Typography>
-            <Grid
-              sx={{
-                backgroundColor: "white",
-                width: "fit-content",
-                borderRadius: 5,
-                padding: "0.25em 1em",
-                marginTop: "1em",
-                display: "flex",
-                alignItems: "center",
-                gap: "1em",
-                position: "relative",
-                zIndex: 0,
-              }}
-            >
-              <Grid sx={{ maxWidth: 200, overflow: "hidden" }}>
-                <Typography variant="body1" color="#0e185f">
-                  meet.google.com/TBA
-                </Typography>
-              </Grid>
-            </Grid>
-          </Grid> */}
 
+          {/* Post Rating and Comment Section */}
           <Grid
             container
             sx={{
@@ -188,9 +151,7 @@ const PostDetailPage = () => {
               <img src={BubbleChatIcon} width={30} alt="Bubble Chat Icon" />
             </Grid>
           </Grid>
-
           <hr />
-
           <Box>
             <TextField
               variant="standard"

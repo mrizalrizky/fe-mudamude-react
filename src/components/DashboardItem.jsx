@@ -1,12 +1,6 @@
 import React from "react";
 import { styled } from "@mui/system";
-import {
-  Paper,
-  ThemeProvider,
-  createTheme,
-  Typography,
-  Button,
-} from "@mui/material";
+import { ThemeProvider, createTheme, Typography, Button } from "@mui/material";
 
 const theme = createTheme({
   pallete: {

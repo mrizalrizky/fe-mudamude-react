@@ -14,7 +14,6 @@ export default function BaseMenuBar({
   const isLoggedIn = localStorage.getItem("token");
 
   const handleOpenDialog = () => {
-    console.log("OPEN DIALOG", openDialog);
     setOpenDialog(true);
   };
 
@@ -26,7 +25,7 @@ export default function BaseMenuBar({
       container
       sx={{
         borderRadius: 5,
-        padding: "1.25em 1.75em",
+        padding: "1.25em",
         backgroundColor: "#0e185f",
         width: "fit-content",
       }}
@@ -52,7 +51,7 @@ export default function BaseMenuBar({
           />
         </Button>
       )}
-      {openDialog && <PostDialog />}
+      <PostDialog openDialog={openDialog} closeDialog={handleCloseDialog} />
     </Grid>
   );
 }

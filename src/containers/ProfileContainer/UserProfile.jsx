@@ -6,7 +6,6 @@ import { BaseInput } from "../../components/inputs/BaseInput";
 export const UserProfile = ({ data }) => {
   return (
     <Box
-      component="div"
       sx={{
         width: 650,
         height: "auto",

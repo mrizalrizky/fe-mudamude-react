@@ -34,7 +34,13 @@ const ProfilePage = ({ title, description }) => {
     <>
       <Header />
       <Container>
-        <Grid container sx={{ gap: "5em" }}>
+        <Grid
+          container
+          sx={{
+            gap: "5em",
+            flexWrap: "nowrap",
+          }}
+        >
           <Grid>
             <ProfileSidebar data={userData} />
           </Grid>
@@ -56,9 +62,7 @@ const ProfilePage = ({ title, description }) => {
                 {currentPath === "/profile/membership" && (
                   <UserMembership data={userData} />
                 )}
-                {currentPath === "/profile/security" && (
-                  <UserSecurity data={userData} />
-                )}
+                {currentPath === "/profile/security" && <UserSecurity />}
               </Grid>
             </Stack>
           </Grid>

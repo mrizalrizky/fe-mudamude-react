@@ -1,11 +1,10 @@
-import { Box, Grid, Typography } from "@mui/material";
+import { Grid } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import BaseTabButton from "../../components/button/BaseTabButton";
 import EventCard from "../../components/card/EventCard";
 import axios from "axios";
 import BaseMenuBar from "../../components/menubar/BaseMenuBar";
 
-export const UserEvent = () => {
+export const UserEvent = ({ data }) => {
   const [pageComponent, setPageComponent] = useState("USER_UPLOADED_EVENTS");
   const [eventList, setEventList] = useState([]);
 
@@ -23,7 +22,7 @@ export const UserEvent = () => {
   const getUserUploadedEventList = async () => {
     try {
       const res = await axios.get(
-        `${process.env.REACT_APP_API_URL}/profile/uploaded-events?username=putriaap`
+        `${process.env.REACT_APP_API_URL}/profile/uploaded-events?username=${data.username}`
       );
       setEventList(res.data.data);
     } catch (error) {
@@ -32,9 +31,10 @@ export const UserEvent = () => {
   };
 
   const getUserRegisteredEventList = async () => {
+    console.log(data);
     try {
       const response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/profile/registered-events?username=putriaap`
+        `${process.env.REACT_APP_API_URL}/profile/registered-events?username=${data.username}}`
       );
 
       if (response && response.data.data) {
@@ -67,6 +67,7 @@ export const UserEvent = () => {
         sx={{
           display: "flex",
           justifyContent: "center",
+          marginBottom: "3em",
         }}
       >
         <BaseMenuBar
@@ -75,25 +76,20 @@ export const UserEvent = () => {
           onPageComponentChange={setPageComponent}
         />
       </Grid>
-      <Box
-        component="div"
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          gap: "5em",
-          paddingTop: "3em",
-          marginBottom: "2em",
-          flexWrap: "wrap",
-        }}
-      >
+
+      <Grid container sx={{ justifyContent: "space-between" }}>
         {eventList.length > 0 ? (
           eventList.map((data) => {
-            return <EventCard key={data.id_event} data={data} />;
+            return (
+              <Grid item sx={{ marginBottom: "2.5em" }}>
+                <EventCard key={data.id_event} data={data} />
+              </Grid>
+            );
           })
         ) : (
           <p>No events</p>
         )}
-      </Box>
+      </Grid>
     </>
   );
 };

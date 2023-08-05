@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Box, Container, Grid, Stack, Typography } from "@mui/material";
-import Banner from "../assets/images/partnership_banner.png";
 import EventCard from "../components/card/EventCard";
 import MembershipBenefitCard from "../components/card/MembershipBenefitCard";
 import axios from "axios";

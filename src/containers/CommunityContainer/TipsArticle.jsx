@@ -19,7 +19,6 @@ export default function TipsArticle() {
   return (
     <>
       <Box
-        component="div"
         sx={{
           padding: "2em",
           textAlign: "center",

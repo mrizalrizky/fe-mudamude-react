@@ -15,6 +15,8 @@ export const BaseInput = ({
   icon,
   iconAlt,
   onChange,
+  rows,
+  multiline,
 }) => {
   return (
     <>
@@ -28,6 +30,8 @@ export const BaseInput = ({
       <TextField
         variant="standard"
         fullWidth
+        rows={rows}
+        multiline={multiline}
         name={name}
         type={type}
         placeholder={placeholder}

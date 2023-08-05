@@ -18,7 +18,6 @@ export default function BelajarBareng() {
   return (
     <>
       <Box
-        component="div"
         sx={{
           padding: "2em",
           textAlign: "center",
@@ -40,7 +39,6 @@ export default function BelajarBareng() {
             postList.map((post) => {
               return (
                 <Grid item sx={{ marginBottom: "3em" }}>
-                  {console.log(post)}
                   <UserPostCard key={post.id_post} data={post} />
                 </Grid>
               );

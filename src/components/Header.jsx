@@ -25,7 +25,7 @@ const Header = ({ bgColor }) => {
       </ul>
 
       {localStorage.getItem("token") ? (
-        <Link to="/profile">
+        <Link to="/profile" style={{ textDecoration: "none" }}>
           <Grid
             container
             sx={{ marginRight: "3em", gap: "1em", alignItems: "center" }}
@@ -36,7 +36,7 @@ const Header = ({ bgColor }) => {
               </Typography>
             </Grid>
             <Grid item>
-              <img src={ProfileIcon} width={35} />
+              <img src={ProfileIcon} alt="Profile Icon" width={35} />
             </Grid>
           </Grid>
         </Link>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Button } from "@mui/material";
+import { Button } from "@mui/material";
 
 export default function ArrowButton({ onClick, icon }) {
   return (

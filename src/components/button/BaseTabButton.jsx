@@ -7,8 +7,8 @@ const StyledButton = styled(Button)({
   padding: "0.25em 1em 0.25em 1em",
   marginLeft: "0.25em",
   textTransform: "none",
-  color: "white",
   backgroundColor: "#0e185f",
+  color: "white",
   "&:hover": {
     color: "#0e185f",
     backgroundColor: "white",
