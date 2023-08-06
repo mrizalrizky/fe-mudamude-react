@@ -18,11 +18,7 @@ export const Login = () => {
     );
 
     if (response && response.data) {
-      localStorage.setItem("userId", response.data.data.id_user);
-      localStorage.setItem("institution", response.data.data.institution);
       localStorage.setItem("token", response.data.data.access_token);
-      localStorage.setItem("username", response.data.data.username);
-      localStorage.setItem("verified_flag", response.data.data.verified_flag);
       window.location.assign("/");
     }
   };

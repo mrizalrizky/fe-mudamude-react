@@ -3,16 +3,16 @@ import { Box, Button, Dialog, Typography } from "@mui/material";
 import UserAvatar from "../UserAvatar";
 import { BaseInput } from "../inputs/BaseInput";
 import axios from "axios";
+import { decodeToken } from "../../utils/jwtDecode";
 
 export default function PostDialog({ openDialog, closeDialog }) {
-  const getUsername = localStorage.getItem("username");
+  const user = decodeToken(localStorage.getItem("token"));
   const [postData, setPostData] = useState({});
 
   const handleSubmit = async () => {
-    const currentUserId = localStorage.getItem("userId");
     const response = await axios.post(
       `${process.env.REACT_APP_API_URL}/posts`,
-      { ...postData, currentUserId }
+      { ...postData, id_user: user?.id }
     );
     if (response && response.data.data) {
       closeDialog();
@@ -49,8 +49,8 @@ export default function PostDialog({ openDialog, closeDialog }) {
       >
         <Box component="div" sx={{ paddingBottom: "1em" }}>
           <UserAvatar
-            fullName={getUsername ?? "-"}
-            institution="Institut Teknologi Bandung"
+            fullName={user?.username ?? "-"}
+            institution={user?.institution ?? "-"}
           />
         </Box>
         <Box
@@ -62,7 +62,7 @@ export default function PostDialog({ openDialog, closeDialog }) {
             type="text"
             label="Mau sharing apa?"
             placeholder="Tulis disini..."
-            name="post_content"
+            name="content"
             onChange={handleInputChange}
             fullWidth
             multiline
@@ -75,7 +75,7 @@ export default function PostDialog({ openDialog, closeDialog }) {
           </Typography>
           <BaseInput
             type="text"
-            name="post_url"
+            name="url"
             placeholder="Link meeting"
             onChange={handleInputChange}
           />

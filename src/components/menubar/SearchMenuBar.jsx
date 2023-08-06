@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Grid } from "@mui/material";
+import { Button, Grid, IconButton } from "@mui/material";
 import SearchIcon from "../../assets/icons/ic_search.svg";
 import CalendarIcon from "../../assets/icons/ic_calendar.svg";
 import LocationPinIcon from "../../assets/icons/ic_location_pin.svg";
@@ -77,7 +77,7 @@ export default function SearchMenuBar() {
       </Grid>
       {isLoggedIn && (
         <Grid item>
-          <Button
+          <IconButton
             sx={{
               padding: 0,
             }}
@@ -89,7 +89,7 @@ export default function SearchMenuBar() {
               height={35}
               alt="Add Post"
             />
-          </Button>
+          </IconButton>
         </Grid>
       )}
     </Grid>

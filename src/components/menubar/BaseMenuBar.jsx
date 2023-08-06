@@ -1,4 +1,4 @@
-import { Button, Grid } from "@mui/material";
+import { Button, Grid, IconButton } from "@mui/material";
 import React, { useState } from "react";
 import PostDialog from "../dialog/PostDialog";
 import PlusCircleOutlineIcon from "../../assets/icons/ic_plus_circle_outline.svg";
@@ -42,14 +42,14 @@ export default function BaseMenuBar({
       })}
 
       {isLoggedIn && currentPageComponent === "USER_POSTS" && addDialog && (
-        <Button onClick={handleOpenDialog} sx={{ margin: 0, padding: 0 }}>
+        <IconButton onClick={handleOpenDialog} sx={{ margin: 0, padding: 0 }}>
           <img
             src={PlusCircleOutlineIcon}
             width={25}
             height={25}
             alt="Add Post"
           />
-        </Button>
+        </IconButton>
       )}
       <PostDialog openDialog={openDialog} closeDialog={handleCloseDialog} />
     </Grid>

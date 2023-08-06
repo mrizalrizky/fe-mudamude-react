@@ -31,8 +31,8 @@ export default function BelajarBareng() {
         <Grid
           container
           sx={{
-            justifyContent: "space-between",
-            marginTop: "1em",
+            // justifyContent: "space-between",
+            gap: "3.5em",
           }}
         >
           {postList && postList.length > 0 ? (

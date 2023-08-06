@@ -5,8 +5,10 @@ import LoginButton from "./button/LoginButton";
 import { Grid, Typography } from "@mui/material";
 import ProfileIcon from "../assets/icons/ic_profile_circle.svg";
 import { Link } from "react-router-dom";
+import { decodeToken } from "../utils/jwtDecode";
 
 const Header = ({ bgColor }) => {
+  const user = decodeToken(localStorage.getItem("token"));
   const backgroundColor = bgColor ? bgColor : "white";
   return (
     <nav
@@ -24,7 +26,7 @@ const Header = ({ bgColor }) => {
         <NavButton name="About" href="/about" />
       </ul>
 
-      {localStorage.getItem("token") ? (
+      {user ? (
         <Link to="/profile" style={{ textDecoration: "none" }}>
           <Grid
             container
@@ -32,7 +34,7 @@ const Header = ({ bgColor }) => {
           >
             <Grid item>
               <Typography color="#0e185f" fontWeight={400} fontSize="16px">
-                Hello, {localStorage.getItem("username")}
+                Hello, {user?.username ?? "-"}
               </Typography>
             </Grid>
             <Grid item>

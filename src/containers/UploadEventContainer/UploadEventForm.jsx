@@ -339,6 +339,7 @@ export default function UploadEventForm() {
                     color: "white",
                   },
                   "&:disabled": {
+                    backgroundColor: "#cecece",
                     color: "white",
                     opacity: "50%",
                   },

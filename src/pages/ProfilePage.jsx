@@ -9,16 +9,17 @@ import { UserProfile } from "../containers/ProfileContainer/UserProfile";
 import { UserMembership } from "../containers/ProfileContainer/UserMembership";
 import { UserSecurity } from "../containers/ProfileContainer/UserSecurity";
 import axios from "axios";
+import { decodeToken } from "../utils/jwtDecode";
 
 const ProfilePage = ({ title, description }) => {
   const currentPath = useLocation().pathname;
-  const username = localStorage.getItem("username");
+  const user = decodeToken(localStorage.getItem("token"));
 
   const [userData, setUserData] = useState({});
 
   const fetchUser = async () => {
     const response = await axios.get(
-      `${process.env.REACT_APP_API_URL}/profile/${username}`
+      `${process.env.REACT_APP_API_URL}/profile/${user?.username}`
     );
 
     if (response && response.data.data) {

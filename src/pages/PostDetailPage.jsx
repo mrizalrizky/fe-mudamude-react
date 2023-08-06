@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -11,6 +11,7 @@ import {
   Stack,
   TextField,
   InputAdornment,
+  IconButton,
 } from "@mui/material";
 import UserAvatar from "../components/UserAvatar";
 import ThreeDotVerticalIcon from "../assets/icons/ic_dot_three_vertical.svg";
@@ -22,9 +23,14 @@ import CommentBox from "../components/CommentBox";
 import { useParams } from "react-router";
 
 const PostDetailPage = () => {
-  const { slug } = useParams();
+  const commentBox = useRef(null);
   const [postDetail, setPostDetail] = useState({});
   const [postRepliesList, setPostRepliesList] = useState([]);
+  const { slug } = useParams();
+
+  const onClickBubble = () => {
+    commentBox.current.focus();
+  };
 
   const getPostDetails = async () => {
     const response = await axios.get(
@@ -137,18 +143,28 @@ const PostDetailPage = () => {
           <Grid
             container
             sx={{
-              gap: "0.5em",
               marginBottom: "1em",
             }}
           >
             <Grid item>
-              <img src={ThumbUpIcon} width={30} alt="Thumbs Up Icon" />
+              <IconButton>
+                <img src={ThumbUpIcon} width={30} alt="Thumbs Up Icon" />
+              </IconButton>
             </Grid>
             <Grid item>
-              <img src={ThumbDownIcon} width={30} alt="Thumbs Down Icon" />
+              <IconButton>
+                <img src={ThumbDownIcon} width={30} alt="Thumbs Down Icon" />
+              </IconButton>
             </Grid>
             <Grid item>
-              <img src={BubbleChatIcon} width={30} alt="Bubble Chat Icon" />
+              <IconButton onClick={onClickBubble}>
+                <img
+                  ref={commentBox}
+                  src={BubbleChatIcon}
+                  width={30}
+                  alt="Bubble Chat Icon"
+                />
+              </IconButton>
             </Grid>
           </Grid>
           <hr />
@@ -169,7 +185,7 @@ const PostDetailPage = () => {
                 disableUnderline: true,
                 endAdornment: (
                   <InputAdornment>
-                    <Button onClick={() => console.log("COMMENT SENT")}>
+                    <IconButton onClick={() => console.log("COMMENT SENT")}>
                       <img
                         src={SendIcon}
                         width={28}
@@ -177,7 +193,7 @@ const PostDetailPage = () => {
                         style={{ marginLeft: "0.5em" }}
                         alt="Send Icon"
                       />
-                    </Button>
+                    </IconButton>
                   </InputAdornment>
                 ),
               }}
